@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="240" height="50" fill="none">
+  <!-- Compass Icon -->
+  <rect x="2" y="5" width="40" height="40" rx="10" fill="#3B82F6"/>
+  <circle cx="22" cy="25" r="14" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="2 2" opacity="0.6"/>
+  <!-- Compass Needle with Code Angle -->
+  <path d="M22 13L27 23L22 21L17 23L22 13Z" fill="#FFFFFF"/>
+  <path d="M22 37L17 27L22 29L27 27L22 37Z" fill="#93C5FD"/>
+  <circle cx="22" cy="25" r="2.5" fill="#10B981"/>
+
+  <!-- Brand Typography -->
+  <text x="52" y="33" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#3B82F6">IT</text>
+  <text x="80" y="33" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#0F172A">Compass</text>
+  <circle cx="198" cy="30" r="3.5" fill="#10B981"/>
+</svg>

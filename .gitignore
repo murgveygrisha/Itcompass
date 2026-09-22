@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# База даних (локальна SQLite)
+*.db
+*.sqlite3
+
+# Службові файли IDE та ОС
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store

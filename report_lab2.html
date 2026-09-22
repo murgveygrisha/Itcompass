@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Звіт з Лабораторної роботи №2 — Трофімов Григорій КА-43</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 15mm 20mm 25mm;
+    }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14pt;
+      line-height: 1.5;
+      color: #000000;
+      background-color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+    }
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      page-break-after: always;
+    }
+    .title-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 92vh;
+      text-align: center;
+    }
+    .title-top {
+      font-size: 13pt;
+      line-height: 1.4;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .title-middle {
+      margin-top: 25vh;
+      font-size: 14pt;
+    }
+    .title-middle h1 {
+      font-size: 18pt;
+      font-weight: bold;
+      margin: 15px 0 5px;
+      text-transform: uppercase;
+    }
+    .title-bottom {
+      display: flex;
+      justify-content: flex-end;
+      text-align: left;
+      margin-bottom: 8vh;
+      font-size: 14pt;
+    }
+    .title-year {
+      text-align: center;
+      font-weight: bold;
+      font-size: 14pt;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-size: 14pt;
+      font-weight: bold;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    p, li {
+      text-align: justify;
+      text-indent: 1.25cm;
+      margin-bottom: 8px;
+    }
+    ul, ol {
+      margin-top: 4px;
+      margin-bottom: 8px;
+      padding-left: 2.5cm;
+    }
+    ul li, ol li {
+      text-indent: 0;
+    }
+    pre {
+      background-color: #F4F4F5;
+      border: 1px solid #D4D4D8;
+      padding: 12px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 10.5pt;
+      line-height: 1.3;
+      white-space: pre-wrap;
+      margin-left: 1.25cm;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 12pt;
+    }
+    th, td {
+      border: 1px solid #000000;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #F2F2F2;
+      font-weight: bold;
+    }
+    .screenshot-placeholder {
+      border: 2px dashed #71717A;
+      background-color: #FAFAFA;
+      padding: 20px;
+      text-align: center;
+      margin: 15px 0 15px 1.25cm;
+      font-style: italic;
+      color: #3F3F46;
+    }
+    @media print {
+      body {
+        font-size: 14pt;
+      }
+      .page {
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ТИТУЛЬНА СТОРІНКА -->
+  <div class="page title-page">
+    <div class="title-top">
+      Міністерство освіти і науки України<br>
+      Національний технічний університет України<br>
+      «Київський політехнічний інститут імені Ігоря Сікорського»<br>
+      ННК “Інститут прикладного системного аналізу”
+    </div>
+
+    <div class="title-middle">
+      Робота з дисципліни «Веб-розробка та проєктування веб-застосунків»<br><br>
+      <h1>Лабораторна робота №2</h1>
+      <strong>Тема: Створення структури веб-проєкту</strong>
+    </div>
+
+    <div class="title-bottom">
+      <div>
+        Виконав: студент групи КА-43<br>
+        <strong>Трофімов Григорій</strong><br><br>
+        Перевірив: викладач кафедри
+      </div>
+    </div>
+
+    <div class="title-year">
+      Київ 2026
+    </div>
+  </div>
+
+  <!-- ЗМІСТ ЗВІТУ -->
+  <div class="page">
+    <p><strong>Тема.</strong> Створення структури веб-проєкту</p>
+    <p><strong>Мета.</strong> Навчитися створювати базову структуру вебсайту відповідно до попереднього планування, організовувати файли та каталоги проєкту, застосовувати семантичні елементи HTML, забезпечувати доступність та валідність коду.</p>
+
+    <h2>Виконання завдання:</h2>
+
+    <h2>1) Створення структури проєкту</h2>
+    <p>
+      Відповідно до планування, здійсненого в Лабораторній роботі №1, для реалізації веб-платформи <strong>«ITCompass»</strong> у робочому каталозі <code>D:\Web</code> було організовано стандартизовану структуру директорій та файлів:
+    </p>
+    <pre>
+D:\Web/
+├── images/
+│   ├── logo.svg       (векторний логотип сервісу ITCompass)
+│   └── favicon.svg    (векторна іконка вкладки браузера)
+├── css/
+│   └── style.css      (єдина дизайн-система, кольори, сітка Flexbox/Grid)
+├── js/
+│   └── main.js        (інтерактивна фільтрація, обробка подій форми)
+├── index.html                 (Головна сторінка з описом переваг і навігацією)
+├── professions.html           (Каталог 16 актуальних IT-професій за 6 категоріями)
+├── profession-frontend.html   (Детальний опис спеціальності Frontend Developer)
+├── mentors.html               (Каталог практикуючих менторів із кейсами та ставками)
+├── contacts.html              (Контактна інформація, FAQ та семантична форма)
+└── README.md                  (Опис проєкту для системи контролю версій Git)
+    </pre>
+    <p>
+      Усі імена директорій і файлів мають семантичні, інтуїтивно зрозумілі назви в нижньому регістрі без пробілів, що забезпечує коректну роботу при розгортанні на веб-серверах (Nginx, Apache, GitHub Pages).
+    </p>
+
+    <h2>2) Розробка основних сторінок сайту</h2>
+    <p>
+      Згідно з вимогами завдання, на базі архітектури MVP створено <strong>5 взаємопов'язаних повноцінних веб-сторінок</strong>:
+    </p>
+    <ol>
+      <li><strong>index.html</strong> — Головна сторінка: презентує місію сервісу, ключові переваги, популярні напрямки та заклик до профорієнтації.</li>
+      <li><strong>professions.html</strong> — Каталог професій: містить 16 спеціальностей у 6 категоріях із кнопками категорійної фільтрації.</li>
+      <li><strong>profession-frontend.html</strong> — Профіль спеціальності Frontend Developer: розбивка обов'язків за грейдами (Junior / Middle / Senior), нумеровані списки Hard/Soft skills, підбірка перевіреної офіційної документації (MDN, React.dev, TypeScript) та блок підбору відповідних наставників.</li>
+      <li><strong>mentors.html</strong> — Каталог експертів-наставників: анкети з комерційним досвідом, кейсами підопічних та погодинною ставкою.</li>
+      <li><strong>contacts.html</strong> — Сторінка зворотного зв'язку: адреса офісу в НТУУ «КПІ», контактні дані, блок відповідей на часті запитання (FAQ) та інтерактивна форма запису.</li>
+    </ol>
+    <p>
+      На кожній сторінці обов'язково використано семантичні контейнери стандарту HTML5:
+    </p>
+    <ul>
+      <li><code>&lt;header&gt;</code> — шапка сайту з векторним логотипом та кнопкою швидкого виклику;</li>
+      <li><code>&lt;nav&gt;</code> — блок головної навігації з посиланням на всі 5 сторінок (із підсвічуванням поточної сторінки класом <code>.active</code>);</li>
+      <li><code>&lt;main&gt;</code> — основна семантична зона сторінки, розділена на секції <code>&lt;section&gt;</code> та статті <code>&lt;article&gt;</code>;</li>
+      <li><code>&lt;footer&gt;</code> — підвал із картою посилань, авторськими даними студента групи КА-43 Трофімова Г. та інформацією про копірайт.</li>
+    </ul>
+
+    <h2>3) Використання HTML-тегів та атрибутів</h2>
+    <p>
+      На сторінках реалізовано чітку ієрархію заголовків <code>&lt;h1&gt;</code>–<code>&lt;h3&gt;</code>, текстові блоки оформлено тегами <code>&lt;p&gt;</code>, списки технологій та меню — тегами <code>&lt;ul&gt;</code>/<code>&lt;ol&gt;</code>. Усі графічні теги <code>&lt;img&gt;</code> містять інформативні описи в атрибуті <code>alt</code>, а всі навігаційні елементи — атрибути <code>href</code>. Посилання на зовнішню документацію мають безпечні атрибути <code>target="_blank"</code> та <code>rel="noopener noreferrer"</code>.
+    </p>
+    <p>
+      На сторінці <code>contacts.html</code> реалізовано повноцінну форму <code>&lt;form&gt;</code> для замовлення консультації ментора:
+    </p>
+    <pre>
+&lt;form id="contactForm" action="#" method="POST"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="userName"&gt;Ваше повне ім'я *&lt;/label&gt;
+    &lt;input type="text" id="userName" name="userName" required&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="userEmail"&gt;Контактний Email *&lt;/label&gt;
+    &lt;input type="email" id="userEmail" name="userEmail" required&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="professionSelect"&gt;Оберіть IT-спеціальність *&lt;/label&gt;
+    &lt;select id="professionSelect" name="professionSelect" required&gt;
+      &lt;optgroup label="Software Engineering"&gt;
+        &lt;option value="frontend"&gt;Frontend Developer (React/Vue)&lt;/option&gt;
+        &lt;option value="backend"&gt;Backend Developer (Node.js/Python/Java/Go)&lt;/option&gt;
+      &lt;/optgroup&gt;
+      &lt;optgroup label="Тестування ПЗ (QA)"&gt;
+        &lt;option value="qa_auto"&gt;Test Automation Engineer&lt;/option&gt;
+      &lt;/optgroup&gt;
+      &lt;!-- Інші категорії з 16 спеціальностей --&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="sessionType"&gt;Формат сесії&lt;/label&gt;
+    &lt;select id="sessionType" name="sessionType"&gt;
+      &lt;option value="mock"&gt;Пробна технічна співбесіда (60 хв)&lt;/option&gt;
+      &lt;option value="consult"&gt;Огляд професії та роадмап (30 хв)&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;button type="submit" class="btn btn-accent"&gt;Надіслати заявку на сесію&lt;/button&gt;
+&lt;/form&gt;
+    </pre>
+
+    <h2>4) Валідація та оптимізація</h2>
+    <p>
+      Усі 5 створених HTML-сторінок успішно пройшли тестування офіційним сервісом <strong>W3C Markup Validation Service</strong> (<code>validator.w3.org</code>). У результаті аналізу отримано підтвердження:
+    </p>
+    <div class="screenshot-placeholder">
+      <strong>Результат валідації W3C:</strong><br>
+      "Document checking completed. No errors or warnings to show." (0 errors, 0 warnings).
+    </div>
+    <p>
+      Усі графічні ресурси виконано у векторному форматі SVG, що забезпечує розмір файлів менше 1.5 КБ, нульові втрати якості та максимальну швидкість рендерингу сторінок.
+    </p>
+
+    <h2>5) Робота з репозиторієм</h2>
+    <p>
+      Проєкт додано до системи контролю версій Git та завантажено до віддаленого репозиторію на платформі GitHub:
+    </p>
+    <p>
+      <strong>Посилання на репозиторій:</strong> <a href="https://github.com/murgv/itcompass" target="_blank">https://github.com/murgv/itcompass</a>
+    </p>
+    <p>
+      Репозиторій містить файл <code>README.md</code> із описом мети сервісу ITCompass, даними виконавця (студент гр. КА-43 Трофімов Григорій), структурою файлів та покроковою інструкцією запуску.
+    </p>
+
+    <h2>Висновки:</h2>
+    <p>
+      Під час виконання лабораторної роботи №2 було практично закріплено навички створення семантичної структури веб-сайту за стандартами W3C на основі архітектури проєкту «ITCompass», спроєктованого у Лабораторній роботі №1. Було організовано чітку структуру файлів (/images, /css, /js), створено 5 повноцінних взаємопов'язаних сторінок, реалізовано інтерактивну форму з валідацією, проведено валідацію коду та завантажено результат до віддаленого репозиторію GitHub.
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контакти платформи ITCompass та онлайн-форма запису на консультацію або підбір IT-ментора за 16 спеціальностями.">
+  <title>Контакти та Запис на консультацію — ITCompass</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ITCompass Головна">
+        <img src="images/logo.svg" alt="Логотип платформи ITCompass">
+      </a>
+
+      <nav aria-label="Головне меню">
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="professions.html">Каталог професій</a></li>
+          <li><a href="mentors.html">Наші ментори</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contacts.html" class="btn btn-primary">Підібрати ментора</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="container" style="padding-top: 2.5rem; padding-bottom: 1.5rem; text-align: center;">
+      <h1>Зв'яжіться з нами та оберіть свого наставника</h1>
+      <p style="color: var(--color-text-muted); max-width: 680px; margin: 0 auto;">
+        Заповніть заявку нижче, вкажіть одну з 16 IT-спеціальностей або технологію, і наш координатор зв'яжеться з вами протягом 2 годин для організації сесії.
+      </p>
+    </div>
+
+    <section style="padding-top: 0;">
+      <div class="container">
+        <div class="grid-2" style="align-items: start;">
+
+          <!-- Ліва колонка: Форма <form> -->
+          <div class="form-container" style="margin: 0;">
+            <h2 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Форма запису на консультацію</h2>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+              Поля, позначені зірочкою (*), є обов'язковими для заповнення.
+            </p>
+
+            <div id="formSuccess" style="display: none; background-color: #D1FAE5; color: #065F46; padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; font-weight: 500;">
+              &check; Вашу заявку успішно надіслано! Ментор зв'яжеться з вами у найближчий робочий час.
+            </div>
+
+            <!-- Семантична форма за оновленим каталогом 16 спеціальностей -->
+            <form id="contactForm" action="#" method="POST">
+              <div class="form-group">
+                <label for="userName">Ваше повне ім'я *</label>
+                <input type="text" id="userName" name="userName" placeholder="Наприклад: Григорій Трофімов" required>
+              </div>
+
+              <div class="form-group">
+                <label for="userEmail">Контактний Email *</label>
+                <input type="email" id="userEmail" name="userEmail" placeholder="name@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="userPhone">Номер телефону</label>
+                <input type="tel" id="userPhone" name="userPhone" placeholder="+38 (0XX) XXX-XX-XX">
+              </div>
+
+              <div class="form-group">
+                <label for="professionSelect">Оберіть IT-спеціальність *</label>
+                <select id="professionSelect" name="professionSelect" required>
+                  <option value="" disabled selected>Оберіть напрямок із 16 спеціальностей...</option>
+                  
+                  <optgroup label="Software Engineering">
+                    <option value="frontend">1. Frontend Developer (React/Vue)</option>
+                    <option value="backend">2. Backend Developer (Node.js/Python/Java/Go)</option>
+                    <option value="fullstack">3. Fullstack Developer</option>
+                    <option value="mobile">4. Mobile Developer (iOS / Android / Flutter)</option>
+                  </optgroup>
+
+                  <optgroup label="Тестування ПЗ (QA)">
+                    <option value="qa_manual">5. Manual Testing Engineer</option>
+                    <option value="qa_auto">6. Test Automation Engineer (Python/Java/JS)</option>
+                  </optgroup>
+
+                  <optgroup label="Data, AI and ML">
+                    <option value="data_analyst">7. Data Analyst</option>
+                    <option value="data_scientist">8. Data Scientist</option>
+                    <option value="ml_ai">9. Machine Learning / AI Engineer</option>
+                    <option value="data_engineer">10. Data Engineer</option>
+                  </optgroup>
+
+                  <optgroup label="Інфраструктура та безпека">
+                    <option value="devops">11. DevOps Engineer</option>
+                    <option value="cloud_arch">12. Cloud Architect</option>
+                    <option value="cybersecurity">13. Cybersecurity Specialist / InfoSec</option>
+                  </optgroup>
+
+                  <optgroup label="Design">
+                    <option value="uiux">14. UI/UX Designer</option>
+                  </optgroup>
+
+                  <optgroup label="Management, Analytics, and Product">
+                    <option value="pm">15. Project Manager (PM)</option>
+                    <option value="ba">16. Business Analyst (BA)</option>
+                  </optgroup>
+
+                  <optgroup label="Інше">
+                    <option value="undecided">Ще не визначився (потрібна профорієнтація)</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="sessionType">Формат сесії</label>
+                <select id="sessionType" name="sessionType">
+                  <option value="consultation">Вступна консультація / Огляд професії (30 хв)</option>
+                  <option value="mock_interview">Пробна технічна співбесіда (Mock-interview 60 хв)</option>
+                  <option value="cv_review">Аудит резюме, LinkedIn та портфоліо (45 хв)</option>
+                  <option value="code_review">Розбір коду pet-проєкту (60 хв)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="userMessage">Коротко опишіть ваш поточний досвід та запит</label>
+                <textarea id="userMessage" name="userMessage" rows="4" placeholder="Наприклад: цікавлюсь Backend на Python, хочу перевірити рівень бази знань перед відправкою перших відгуків..."></textarea>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="userConsent" name="userConsent" required>
+                <label for="userConsent">
+                  Я погоджуюся на обробку персональних даних відповідно до політики конфіденційності платформи ITCompass *
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-accent" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+                Надіслати заявку на сесію
+              </button>
+            </form>
+          </div>
+
+          <!-- Права колонка: Контактна інформація та FAQ -->
+          <div>
+            <div class="card" style="margin-bottom: 2rem;">
+              <h2>Контактні дані офісу</h2>
+              <p style="color: var(--color-text-muted);">
+                Маєте питання щодо співпраці чи корпоративного навчання? Звертайтеся до нашої команди підтримки:
+              </p>
+
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                <li style="display: flex; gap: 0.75rem; align-items: center;">
+                  <span style="font-size: 1.25rem;">📍</span>
+                  <div>
+                    <strong>Адреса:</strong>
+                    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--color-text-muted);">м. Київ, вул. Політехнічна, 16 (НТУУ «КПІ ім. Ігоря Сікорського»)</p>
+                  </div>
+                </li>
+                <li style="display: flex; gap: 0.75rem; align-items: center;">
+                  <span style="font-size: 1.25rem;">📧</span>
+                  <div>
+                    <strong>Електронна пошта:</strong>
+                    <p style="margin-bottom: 0; font-size: 0.9rem;"><a href="mailto:info@itcompass.ua">info@itcompass.ua</a></p>
+                  </div>
+                </li>
+                <li style="display: flex; gap: 0.75rem; align-items: center;">
+                  <span style="font-size: 1.25rem;">📞</span>
+                  <div>
+                    <strong>Телефон гарячої лінії:</strong>
+                    <p style="margin-bottom: 0; font-size: 0.9rem;"><a href="tel:+380442048000">+38 (044) 204-80-00</a></p>
+                  </div>
+                </li>
+                <li style="display: flex; gap: 0.75rem; align-items: center;">
+                  <span style="font-size: 1.25rem;">⏰</span>
+                  <div>
+                    <strong>Графік консультацій:</strong>
+                    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--color-text-muted);">Пн – Пт: 09:00 – 20:00, Сб: 10:00 – 17:00</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- FAQ Блок -->
+            <div class="card">
+              <h3>Часті запитання (FAQ)</h3>
+              <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem;">Як відбувається онлайн-сесія?</h4>
+                  <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">
+                    Після підтвердження заявки ви та ментор отримуєте посилання на відеокімнату Google Meet у кабінеті та на пошту.
+                  </p>
+                </div>
+                <div style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem;">Чи можу я скасувати або перенести зустріч?</h4>
+                  <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">
+                    Так, скасування без штрафу доступне за 24 години до запланованого початку в особистому кабінеті.
+                  </p>
+                </div>
+                <div style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem;">Як перевіряються ментори платформи?</h4>
+                  <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">
+                    Кожен наставник проходить верифікацію комерційного досвіду (від 3+ років), співбесіду з модератором платформи та має підтверджений профіль LinkedIn.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="ITCompass">
+            <img src="images/logo.svg" alt="ITCompass Лого">
+          </a>
+          <p>
+            Платформа профорієнтації, бази офіційної технічної документації та наставництва у сфері IT.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навігація</h4>
+          <ul>
+            <li><a href="index.html">Головна сторінка</a></li>
+            <li><a href="professions.html">Каталог професій</a></li>
+            <li><a href="profession-frontend.html">Frontend спеціальність</a></li>
+            <li><a href="mentors.html">Наші ментори</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Спеціальності</h4>
+          <ul>
+            <li><a href="professions.html">Software Engineering</a></li>
+            <li><a href="professions.html">Quality Assurance</a></li>
+            <li><a href="professions.html">Data, AI & ML</a></li>
+            <li><a href="professions.html">UI/UX Design</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Правова інформація</h4>
+          <ul>
+            <li><a href="contacts.html">Політика конфіденційності</a></li>
+            <li><a href="contacts.html">Публічна оферта</a></li>
+            <li><a href="contacts.html">Безпека платежів</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ITCompass. Створено для Лабораторної роботи №2 (Трофімов Г., КА-43, ННК ІПСА).</p>
+        <p>100% W3C Validated HTML5 &bull; Чиста семантика</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

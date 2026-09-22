@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ITCompass — інтерактивний довідник IT-професій, база знань з офіційною документацією та платформа підбору менторів для початківців.">
+  <meta name="keywords" content="IT професії, як увійти в IT, ментори IT, roadmap розробника, документація, курси програмування">
+  <title>ITCompass — Твій орієнтир у світі IT-професій та наставництва</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Семантичний блок Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ITCompass Головна">
+        <img src="images/logo.svg" alt="Логотип платформи ITCompass">
+      </a>
+
+      <!-- Семантична навігація сайту -->
+      <nav aria-label="Головне меню">
+        <ul>
+          <li><a href="index.html" class="active">Головна</a></li>
+          <li><a href="professions.html">Каталог професій</a></li>
+          <li><a href="mentors.html">Наші ментори</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contacts.html" class="btn btn-primary">Підібрати ментора</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Семантичний блок Main -->
+  <main>
+    <!-- Hero секція -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">Навігатор кар'єри в IT для новачків</span>
+        <h1>Обери свій напрямок в IT та отримай підтримку топ-ментора</h1>
+        <p>
+          Структурований гід по 16 ключових IT-спеціальностях: реальні обов'язки, карта навичок, офіційна документація та персональні сесії з практикуючими розробниками.
+        </p>
+        <div class="hero-actions">
+          <a href="professions.html" class="btn btn-primary">Переглянути всі 16 професій</a>
+          <a href="mentors.html" class="btn btn-outline">Знайти наставника</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Переваги сервісу -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>Чому саме ITCompass?</h2>
+          <p>Ми усуваємо інформаційний хаос і даємо чіткий структурований маршрут від вибору технології до офферу.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="card-badge badge-dev">База знань</span>
+            <h3>16 ключових професій</h3>
+            <p>Жодної «води»: опис реального робочого дня, розподіл завдань за грейдами (Junior / Middle / Senior) та актуальні вимоги роботодавців.</p>
+            <div class="card-footer">
+              <a href="professions.html">Детальніше про ролі &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card-badge badge-data">Освіта</span>
+            <h3>Офіційна документація</h3>
+            <p>Прямі посилання на стандарти W3C, специфікації ECMAScript, гайди React, Python, AWS замість сумнівних застарілих курсів.</p>
+            <div class="card-footer">
+              <a href="profession-frontend.html">Приклад бази знань &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card-badge badge-mgmt">Практика</span>
+            <h3>1-on-1 Менторські сесії</h3>
+            <p>Пробні співбесіди (mock-interview), аудит резюме, розбір коду pet-проєктів і персональні консультації з безпечною оплатою.</p>
+            <div class="card-footer">
+              <a href="mentors.html">Перейти до менторів &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Популярні напрямки -->
+    <section style="background-color: #FFFFFF; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Популярні IT-спеціальності для старту</h2>
+          <p>Ознайомтеся з найзатребуванішими напрямками з високими шансами на працевлаштування.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Картка 1 -->
+          <article class="card">
+            <span class="card-badge badge-dev">Розробка</span>
+            <h3>Frontend Developer</h3>
+            <p>Створення користувацьких інтерфейсів, інтерактивність веб-сайтів і клієнтська логіка застосунків.</p>
+            <ul class="tags-list">
+              <li class="tag">HTML5 / CSS3</li>
+              <li class="tag">JavaScript</li>
+              <li class="tag">React</li>
+              <li class="tag">TypeScript</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 14 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Від 800 ₴/год</span>
+              </div>
+              <div class="card-actions-grid">
+                <a href="profession-frontend.html" class="btn btn-outline">Докладніше</a>
+                <a href="contacts.html?profession=frontend" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Картка 2 -->
+          <article class="card">
+            <span class="card-badge badge-qa">Якість</span>
+            <h3>QA Automation Engineer</h3>
+            <p>Автоматизація тестування програмного забезпечення, написання тест-скриптів та забезпечення якості релізів.</p>
+            <ul class="tags-list">
+              <li class="tag">Python / Java</li>
+              <li class="tag">Selenium</li>
+              <li class="tag">Playwright</li>
+              <li class="tag">CI/CD</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 12 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Від 950 ₴/год</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="qa_auto">Докладніше</button>
+                <a href="contacts.html?profession=qa_auto" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Картка 3 -->
+          <article class="card">
+            <span class="card-badge badge-design">Дизайн</span>
+            <h3>UI/UX Designer</h3>
+            <p>Дослідження досвіду користувачів, створення прототипів, вайрфреймів та дизайн-систем мобільних і веб-додатків.</p>
+            <ul class="tags-list">
+              <li class="tag">Figma</li>
+              <li class="tag">Wireframing</li>
+              <li class="tag">UX Research</li>
+              <li class="tag">Design Systems</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 13 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Від 900 ₴/год</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="uiux">Докладніше</button>
+                <a href="contacts.html?profession=uiux" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Заклик до дії -->
+    <section>
+      <div class="container" style="text-align: center;">
+        <h2>Не впевнені, яку спеціальність обрати?</h2>
+        <p style="max-width: 600px; margin: 0 auto 1.5rem;">
+          Запишіться на безкоштовну вступну 20-хвилинну консультацію. Наш координатор допоможе визначити сильні сторони та обрати ідеальний вектор розвитку.
+        </p>
+        <a href="contacts.html" class="btn btn-accent">Залишити заявку на профорієнтацію</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Семантичний блок Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="ITCompass">
+            <img src="images/logo.svg" alt="ITCompass Лого">
+          </a>
+          <p>
+            Платформа структурованого кар'єрного орієнтування та менторства в IT-галузі. Освіта на основі офіційної документації та реального досвіду.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навігація</h4>
+          <ul>
+            <li><a href="index.html">Головна сторінка</a></li>
+            <li><a href="professions.html">Каталог професій</a></li>
+            <li><a href="profession-frontend.html">Frontend розробка</a></li>
+            <li><a href="mentors.html">База менторів</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Напрямки</h4>
+          <ul>
+            <li><a href="professions.html">Software Engineering</a></li>
+            <li><a href="professions.html">Quality Assurance</a></li>
+            <li><a href="professions.html">Data & AI</a></li>
+            <li><a href="professions.html">DevOps & Cloud</a></li>
+            <li><a href="professions.html">Product Management</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Контакти</h4>
+          <ul>
+            <li>м. Київ, вул. Політехнічна, 16</li>
+            <li><a href="mailto:support@itcompass.ua">support@itcompass.ua</a></li>
+            <li><a href="tel:+380442048000">+38 (044) 204-80-00</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ITCompass. Розроблено для Лабораторної роботи №2 (студент гр. КА-43 Трофімов Г.). Усі права захищено.</p>
+        <p>Стандарти W3C &bull; Семантичний HTML5 &bull; Доступність WCAG 2.1</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Інтерактивне модальне вікно для детального огляду пропозиції -->
+  <div id="professionModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Детальний огляд спеціальності">
+    <div class="modal-card">
+      <button type="button" id="modalCloseBtn" class="modal-close" aria-label="Закрити модальне вікно">&times;</button>
+      <div id="modalBody">
+        <!-- Вміст динамічно рендериться через js/main.js -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

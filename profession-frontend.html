@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frontend Developer: детальний огляд професії, щоденні обов'язки Junior/Middle/Senior, карта навичок, офіційна документація та підбір менторів.">
+  <title>Frontend Developer — Обов'язки, Навички та Документація | ITCompass</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ITCompass Головна">
+        <img src="images/logo.svg" alt="Логотип платформи ITCompass">
+      </a>
+
+      <nav aria-label="Головне меню">
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="professions.html" class="active">Каталог професій</a></li>
+          <li><a href="mentors.html">Наші ментори</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contacts.html" class="btn btn-primary">Підібрати ментора</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- Шапка професії -->
+    <section style="background: linear-gradient(180deg, #EFF6FF 0%, var(--color-bg) 100%); padding: 3rem 0 2rem;">
+      <div class="container">
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; align-items: center;">
+          <a href="professions.html" style="font-size: 0.9rem;">&larr; Назад до каталогу професій</a>
+          <span style="color: var(--color-text-muted);">/</span>
+          <span class="card-badge badge-dev" style="margin-bottom: 0;">Software Engineering</span>
+        </div>
+        <h1>Frontend Developer (Розробник користувацьких інтерфейсів)</h1>
+        <p style="font-size: 1.15rem; color: var(--color-text-muted); max-width: 820px;">
+          Frontend-розробник відповідає за візуальну та інтерактивну частину веб-додатків, з якою безпосередньо взаємодіє користувач. Фахівець перетворює дизайн-макети з Figma на робочий, адаптивний, швидкий та доступний веб-код.
+        </p>
+      </div>
+    </section>
+
+    <!-- Основний зміст сторінки -->
+    <section>
+      <div class="container">
+        <div class="grid-2" style="align-items: start;">
+          
+          <!-- Ліва колонка: Обов'язки та навички -->
+          <div>
+            <h2>1. Що має робити спеціаліст (Обов'язки)</h2>
+            <p>
+              Робота Frontend-інженера полягає не лише у написанні коду, але й в оптимізації продуктивності веб-сторінок, взаємодії з бекенд-командою та забезпеченні кросбраузерності.
+            </p>
+
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Рівень (Грейд)</th>
+                    <th>Типові щоденні обов'язки</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Junior</strong></td>
+                    <td>
+                      <ul>
+                        <li>Адаптивна та кросбраузерна верстка сторінок за макетами Figma (HTML5/CSS3/Flexbox/Grid).</li>
+                        <li>Базова інтерактивність на чистому JavaScript (DOM manipulation, обробка подій).</li>
+                        <li>Підключення готових REST API за допомогою <code>fetch</code> або <code>axios</code>.</li>
+                        <li>Виправлення дрібних візуальних багів та робота з Git (створення гілок, Pull Requests).</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Middle</strong></td>
+                    <td>
+                      <ul>
+                        <li>Розробка SPA/SSR застосунків на React, Next.js або Vue.js.</li>
+                        <li>Керування складним глобальним станом застосунку (Redux Toolkit, Zustand).</li>
+                        <li>Написання модульних та інтеграційних тестів (Jest, React Testing Library).</li>
+                        <li>Оптимізація Core Web Vitals (LCP, CLS, FID/INP), налаштування бандлерів Vite/Webpack.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Senior / Lead</strong></td>
+                    <td>
+                      <ul>
+                        <li>Проєктування архітектури фронтенду (Micro-frontends, Server Components).</li>
+                        <li>Створення та супровід корпоративних Design Systems і UI-бібліотек.</li>
+                        <li>Проведення обов'язкового Code Review, менторство junior-розробників.</li>
+                        <li>Безпека фронтенду (захист від XSS, CSRF, налаштування CSP політик).</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 style="margin-top: 2rem;">2. Матриця знань, умінь та навичок</h2>
+            <div class="grid-2" style="gap: 1rem; margin-top: 1rem;">
+              <article class="card" style="padding: 1.25rem;">
+                <h3 style="color: var(--color-primary); font-size: 1.1rem;">Hard Skills (Технічні знання)</h3>
+                <ol style="padding-left: 1.25rem; font-size: 0.95rem; color: var(--color-text);">
+                  <li><strong>Семантичний HTML5:</strong> теги header, nav, main, article, форми та валідація W3C.</li>
+                  <li><strong>Сучасний CSS3:</strong> Flexbox, CSS Grid, змінні (Custom Properties), медіа-запити, Tailwind CSS.</li>
+                  <li><strong>JavaScript (ES6+):</strong> асинхронність (Promises, async/await), замикання, робота з прототипами.</li>
+                  <li><strong>TypeScript:</strong> типізація інтерфейсів, дженерики, робота з типами API.</li>
+                  <li><strong>Фреймворки:</strong> React 18/19, компоненти, хуки (useState, useEffect, useMemo), Next.js.</li>
+                  <li><strong>Інструменти:</strong> Git, GitHub, npm/pnpm, Vite, ESLint, Chrome DevTools.</li>
+                </ol>
+              </article>
+
+              <article class="card" style="padding: 1.25rem;">
+                <h3 style="color: var(--color-accent); font-size: 1.1rem;">Soft Skills (Особисті якості)</h3>
+                <ol style="padding-left: 1.25rem; font-size: 0.95rem; color: var(--color-text);">
+                  <li><strong>Командна комунікація:</strong> вміння чітко пояснити проблему на щоденних Scrum-мітингах.</li>
+                  <li><strong>Культура Code Review:</strong> спокійне сприйняття зауважень і конструктивна критика чужого коду.</li>
+                  <li><strong>Problem-solving:</strong> самостійний пошук рішень через читання документації та GitHub Issues.</li>
+                  <li><strong>Увага до деталей (Pixel-Perfect):</strong> повага до роботи UI-дизайнера та відступів.</li>
+                  <li><strong>Тайм-менеджмент:</strong> реалістична оцінка часу виконання завдань (Story Points).</li>
+                </ol>
+              </article>
+            </div>
+          </div>
+
+          <!-- Права колонка: Допоміжна документація та ментори -->
+          <div>
+            <!-- Блок офіційної документації -->
+            <div class="card" style="background-color: #F8FAFC; border-color: #CBD5E1; margin-bottom: 2rem;">
+              <span class="card-badge badge-data">База знань</span>
+              <h2>3. Допоміжна офіційна документація</h2>
+              <p style="font-size: 0.9rem;">
+                Рекомендовані першоджерела для вивчення технологій спеціальності без застарілих практик:
+              </p>
+
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+                <li style="padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border);">
+                  <strong><a href="https://developer.mozilla.org/uk/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs (HTML & CSS) &nearr;</a></strong>
+                  <p style="font-size: 0.85rem; margin-bottom: 0; color: var(--color-text-muted);">Найповніший світовий довідник стандартів веб-верстки та браузерних API від Mozilla.</p>
+                </li>
+                <li style="padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border);">
+                  <strong><a href="https://javascript.info/" target="_blank" rel="noopener noreferrer">Сучасний підручник JavaScript (Learn JS) &nearr;</a></strong>
+                  <p style="font-size: 0.85rem; margin-bottom: 0; color: var(--color-text-muted);">Повний фундаментальний курс від азів мови до складних концепцій та подій у браузері.</p>
+                </li>
+                <li style="padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border);">
+                  <strong><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">Офіційна документація React.dev &nearr;</a></strong>
+                  <p style="font-size: 0.85rem; margin-bottom: 0; color: var(--color-text-muted);">Інтерактивні посібники з хуків, стану та серверних компонентів нового покоління.</p>
+                </li>
+                <li>
+                  <strong><a href="https://www.typescriptlang.org/docs/handbook/" target="_blank" rel="noopener noreferrer">TypeScript Handbook &nearr;</a></strong>
+                  <p style="font-size: 0.85rem; margin-bottom: 0; color: var(--color-text-muted);">Офіційне керівництво з типізації JavaScript від інженерів компанії Microsoft.</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Блок менторів за спеціальністю -->
+            <div class="card" style="border-top: 4px solid var(--color-primary);">
+              <span class="card-badge badge-mgmt">Наставництво</span>
+              <h3>Ментори напрямку Frontend</h3>
+              <p style="font-size: 0.9rem;">
+                Потрібен аудит вашого коду або пробна технічна співбесіда? Зверніться до перевірених практиків:
+              </p>
+
+              <!-- Міні-картка ментора 1 -->
+              <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border);">
+                <div class="mentor-avatar" style="width: 48px; height: 48px; font-size: 1rem;">ОК</div>
+                <div style="flex-grow: 1;">
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.1rem;">Олександр Коваленко</h4>
+                  <p style="font-size: 0.8rem; margin-bottom: 0; color: var(--color-text-muted);">Senior Frontend @ MacPaw &bull; 6 років досвіду</p>
+                </div>
+                <div style="text-align: right;">
+                  <span style="font-family: var(--font-mono); font-weight: 700; font-size: 0.9rem;">800 ₴/год</span>
+                </div>
+              </div>
+
+              <!-- Міні-картка ментора 2 -->
+              <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 0.75rem; padding-bottom: 1rem;">
+                <div class="mentor-avatar" style="width: 48px; height: 48px; font-size: 1rem; background-color: #FEF3C7; color: #B45309;">ІМ</div>
+                <div style="flex-grow: 1;">
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.1rem;">Ірина Мельник</h4>
+                  <p style="font-size: 0.8rem; margin-bottom: 0; color: var(--color-text-muted);">Lead React Engineer @ Grammarly &bull; 8 років</p>
+                </div>
+                <div style="text-align: right;">
+                  <span style="font-family: var(--font-mono); font-weight: 700; font-size: 0.9rem;">1100 ₴/год</span>
+                </div>
+              </div>
+
+              <a href="mentors.html" class="btn btn-accent" style="width: 100%; text-align: center;">Обрати ментора та забронювати слот</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="ITCompass">
+            <img src="images/logo.svg" alt="ITCompass Лого">
+          </a>
+          <p>
+            Деталізовані вимоги до IT-професій, що регулярно синхронізуються зі змінами технологічних стеків у провідних IT-компаніях.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навігація</h4>
+          <ul>
+            <li><a href="index.html">Головна сторінка</a></li>
+            <li><a href="professions.html">Каталог професій</a></li>
+            <li><a href="profession-frontend.html">Frontend спеціальність</a></li>
+            <li><a href="mentors.html">Наші ментори</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Суміжні ролі</h4>
+          <ul>
+            <li><a href="professions.html">Backend Developer</a></li>
+            <li><a href="professions.html">Fullstack Engineer</a></li>
+            <li><a href="professions.html">UI/UX Designer</a></li>
+            <li><a href="professions.html">QA Automation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Зворотний зв'язок</h4>
+          <ul>
+            <li><a href="contacts.html">Задати питання наставнику</a></li>
+            <li><a href="contacts.html">Запропонувати документацію</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ITCompass. Виконано для Лабораторної роботи №2 (Трофімов Григорій, гр. КА-43, ІПСА).</p>
+        <p>Семантичний HTML5 &bull; Відповідає стандартам W3C</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

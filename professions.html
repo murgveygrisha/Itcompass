@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог 16 актуальних IT-професій: опис ролей, обов'язки Junior/Middle/Senior, технологічні стеки, супровідна документація та замовлення консультації.">
+  <title>Каталог IT-професій — ITCompass</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="ITCompass Головна">
+        <img src="images/logo.svg" alt="Логотип платформи ITCompass">
+      </a>
+
+      <nav aria-label="Головне меню">
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="professions.html" class="active">Каталог професій</a></li>
+          <li><a href="mentors.html">Наші ментори</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contacts.html" class="btn btn-primary">Підібрати ментора</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="container" style="padding-top: 2.5rem; padding-bottom: 1rem;">
+      <h1>Каталог актуальних IT-професій (16 спеціальностей)</h1>
+      <p style="color: var(--color-text-muted); max-width: 820px;">
+        Оберіть напрямок, щоб детальніше оглянути пропозицію (обов'язки, Hard/Soft навички, офіційну документацію) або одразу замовити 1-on-1 консультацію з перевіреним ментором.
+      </p>
+
+      <!-- Фільтри категорій -->
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2rem;">
+        <button type="button" class="btn btn-outline filter-btn active" data-category="all">Усі спеціальності (16)</button>
+        <button type="button" class="btn btn-outline filter-btn" data-category="dev">Software Engineering (4)</button>
+        <button type="button" class="btn btn-outline filter-btn" data-category="qa">Тестування ПЗ / QA (2)</button>
+        <button type="button" class="btn btn-outline filter-btn" data-category="data">Data, AI & ML (4)</button>
+        <button type="button" class="btn btn-outline filter-btn" data-category="infra">Інфраструктура та безпека (3)</button>
+        <button type="button" class="btn btn-outline filter-btn" data-category="design">Design (1)</button>
+        <button type="button" class="btn btn-outline filter-btn" data-category="mgmt">Management & Analytics (2)</button>
+      </div>
+    </div>
+
+    <section style="padding-top: 0;">
+      <div class="container">
+        <div class="grid-3" id="professionsList">
+
+          <!-- 1. Frontend Developer -->
+          <article class="card profession-card" data-category="dev">
+            <span class="card-badge badge-dev">Software Engineering</span>
+            <h3>1. Frontend Developer (React/Vue)</h3>
+            <p>Створення клієнтської частини сайтів та інтерактивних веб-додатків. Робота з DOM, компонентною архітектурою та анімаціями.</p>
+            <ul class="tags-list">
+              <li class="tag">HTML5/CSS3</li>
+              <li class="tag">JavaScript</li>
+              <li class="tag">React / Vue</li>
+              <li class="tag">TypeScript</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 14 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Перевірені кейси</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="frontend">Докладніше</button>
+                <a href="contacts.html?profession=frontend" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Backend Developer -->
+          <article class="card profession-card" data-category="dev">
+            <span class="card-badge badge-dev">Software Engineering</span>
+            <h3>2. Backend Developer (Node.js/Python/Java/Go)</h3>
+            <p>Проєктування серверної архітектури, бізнес-логіки додатків, робота з базами даних, створення надійних REST та GraphQL API.</p>
+            <ul class="tags-list">
+              <li class="tag">Node.js</li>
+              <li class="tag">Python / Java</li>
+              <li class="tag">PostgreSQL</li>
+              <li class="tag">Go</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 18 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">HighLoad задачі</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="backend">Докладніше</button>
+                <a href="contacts.html?profession=backend" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Fullstack Developer -->
+          <article class="card profession-card" data-category="dev">
+            <span class="card-badge badge-dev">Software Engineering</span>
+            <h3>3. Fullstack Developer</h3>
+            <p>Універсальні інженери, здатні розробляти як інтерфейс користувача, так і серверний бекенд разом із базою даних.</p>
+            <ul class="tags-list">
+              <li class="tag">React/Next.js</li>
+              <li class="tag">Node.js</li>
+              <li class="tag">SQL / Prisma</li>
+              <li class="tag">CI/CD</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 11 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">End-to-End фічі</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="fullstack">Докладніше</button>
+                <a href="contacts.html?profession=fullstack" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Mobile Developer -->
+          <article class="card profession-card" data-category="dev">
+            <span class="card-badge badge-dev">Software Engineering</span>
+            <h3>4. Mobile Developer (iOS / Android / Flutter)</h3>
+            <p>Розробка нативних та кросплатформних мобільних додатків для смартфонів на базі iOS і Android.</p>
+            <ul class="tags-list">
+              <li class="tag">Swift</li>
+              <li class="tag">Kotlin</li>
+              <li class="tag">Flutter / Dart</li>
+              <li class="tag">Mobile UX</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 8 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">App Store / Play</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="mobile">Докладніше</button>
+                <a href="contacts.html?profession=mobile" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Manual Testing Engineer -->
+          <article class="card profession-card" data-category="qa">
+            <span class="card-badge badge-qa">Тестування ПЗ (QA)</span>
+            <h3>5. Manual Testing Engineer</h3>
+            <p>Ручне тестування ПЗ, аналіз технічних вимог, складання тест-планів, чек-листів, тест-кейсів та ведення баг-репортів.</p>
+            <ul class="tags-list">
+              <li class="tag">TestRail</li>
+              <li class="tag">Jira</li>
+              <li class="tag">Postman (API)</li>
+              <li class="tag">SQL Basics</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 15 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Легкий старт</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="qa_manual">Докладніше</button>
+                <a href="contacts.html?profession=qa_manual" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Test Automation Engineer -->
+          <article class="card profession-card" data-category="qa">
+            <span class="card-badge badge-qa">Тестування ПЗ (QA)</span>
+            <h3>6. Test Automation Engineer (Python/Java/JS)</h3>
+            <p>Розробка автоматизованих сценаріїв і автотестів (UI/API) для перевірки стабільності, регресії та навантаження систем.</p>
+            <ul class="tags-list">
+              <li class="tag">Python / Java</li>
+              <li class="tag">Playwright</li>
+              <li class="tag">Selenium</li>
+              <li class="tag">CI/CD</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 12 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Автоматизація</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="qa_auto">Докладніше</button>
+                <a href="contacts.html?profession=qa_auto" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Data Analyst -->
+          <article class="card profession-card" data-category="data">
+            <span class="card-badge badge-data">Data, AI and ML</span>
+            <h3>7. Data Analyst</h3>
+            <p>Збір, очищення та аналіз бізнес-метрик, побудова інтерактивних дашбордів для прийняття управлінських рішень.</p>
+            <ul class="tags-list">
+              <li class="tag">SQL Advanced</li>
+              <li class="tag">Tableau / PowerBI</li>
+              <li class="tag">Python (Pandas)</li>
+              <li class="tag">Статистика</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 9 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Дашборди & BI</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="data_analyst">Докладніше</button>
+                <a href="contacts.html?profession=data_analyst" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Data Scientist -->
+          <article class="card profession-card" data-category="data">
+            <span class="card-badge badge-data">Data, AI and ML</span>
+            <h3>8. Data Scientist</h3>
+            <p>Побудова математичних моделей, прогнозування бізнес-показників, перевірка статистичних гіпотез на великих даних.</p>
+            <ul class="tags-list">
+              <li class="tag">Python (Scikit-learn)</li>
+              <li class="tag">Math & Stats</li>
+              <li class="tag">Data Mining</li>
+              <li class="tag">Jupyter</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 8 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">ML & Прогнози</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="data_scientist">Докладніше</button>
+                <a href="contacts.html?profession=data_scientist" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9. Machine Learning / AI Engineer -->
+          <article class="card profession-card" data-category="data">
+            <span class="card-badge badge-data">Data, AI and ML</span>
+            <h3>9. Machine Learning / AI Engineer</h3>
+            <p>Тренування, оптимізація та розгортання нейромереж, моделей глибокого навчання (Deep Learning, LLM) у виробниче середовище.</p>
+            <ul class="tags-list">
+              <li class="tag">PyTorch / TensorFlow</li>
+              <li class="tag">LLM & GenAI</li>
+              <li class="tag">MLOps</li>
+              <li class="tag">HuggingFace</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 7 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">GenAI & LLM</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="ml_ai">Докладніше</button>
+                <a href="contacts.html?profession=ml_ai" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10. Data Engineer -->
+          <article class="card profession-card" data-category="data">
+            <span class="card-badge badge-data">Data, AI and ML</span>
+            <h3>10. Data Engineer</h3>
+            <p>Розробка архітектури сховищ даних (DWH, Data Lake), побудова ETL/ELT конвеєрів для обробки терабайтів інформації.</p>
+            <ul class="tags-list">
+              <li class="tag">Apache Spark</li>
+              <li class="tag">Airflow</li>
+              <li class="tag">Kafka</li>
+              <li class="tag">Snowflake / BigQuery</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 6 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Big Data & Pipelines</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="data_engineer">Докладніше</button>
+                <a href="contacts.html?profession=data_engineer" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 11. DevOps Engineer -->
+          <article class="card profession-card" data-category="infra">
+            <span class="card-badge badge-data">Інфраструктура</span>
+            <h3>11. DevOps Engineer</h3>
+            <p>Налаштування безперервної інтеграції (CI/CD), контейнеризація в Docker, оркестрація Kubernetes та моніторинг стабільності.</p>
+            <ul class="tags-list">
+              <li class="tag">Linux</li>
+              <li class="tag">Docker & K8s</li>
+              <li class="tag">Terraform</li>
+              <li class="tag">GitLab CI</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 10 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Cloud & CI/CD</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="devops">Докладніше</button>
+                <a href="contacts.html?profession=devops" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 12. Cloud Architect -->
+          <article class="card profession-card" data-category="infra">
+            <span class="card-badge badge-data">Інфраструктура</span>
+            <h3>12. Cloud Architect (AWS/GCP/Azure)</h3>
+            <p>Проєктування масштабованої, відмовостійкої та безпечної хмарної інфраструктури для високонавантажених цифрових сервісів.</p>
+            <ul class="tags-list">
+              <li class="tag">AWS / GCP / Azure</li>
+              <li class="tag">Cloud Security</li>
+              <li class="tag">Cost Optimization</li>
+              <li class="tag">Microservices</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 5 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Enterprise Cloud</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="cloud_arch">Докладніше</button>
+                <a href="contacts.html?profession=cloud_arch" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 13. Cybersecurity Specialist / InfoSec -->
+          <article class="card profession-card" data-category="infra">
+            <span class="card-badge badge-data">Безпека</span>
+            <h3>13. Cybersecurity Specialist / InfoSec</h3>
+            <p>Захист мережевих контурів, аудит вразливостей, тестування систем на проникнення (Penetration Testing) та дотримання стандартів безпеки.</p>
+            <ul class="tags-list">
+              <li class="tag">Network Security</li>
+              <li class="tag">OWASP Top 10</li>
+              <li class="tag">PenTesting</li>
+              <li class="tag">Cryptography</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 6 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">White-hat Security</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="cybersecurity">Докладніше</button>
+                <a href="contacts.html?profession=cybersecurity" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 14. UI/UX Designer -->
+          <article class="card profession-card" data-category="design">
+            <span class="card-badge badge-design">Design</span>
+            <h3>14. UI/UX Designer</h3>
+            <p>Дослідження потреб користувачів, проєктування прототипів (Figma), вайрфреймів та створення ергономічних дизайн-систем.</p>
+            <ul class="tags-list">
+              <li class="tag">Figma</li>
+              <li class="tag">UX Research</li>
+              <li class="tag">Design Systems</li>
+              <li class="tag">Prototyping</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 13 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Портфоліо & Figma</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="uiux">Докладніше</button>
+                <a href="contacts.html?profession=uiux" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 15. Project Manager (PM) -->
+          <article class="card profession-card" data-category="mgmt">
+            <span class="card-badge badge-mgmt">Management</span>
+            <h3>15. Project Manager (PM)</h3>
+            <p>Управління проєктними термінами, бюджетом, координація команди розробників за методологіями Agile, Scrum та Kanban.</p>
+            <ul class="tags-list">
+              <li class="tag">Agile / Scrum</li>
+              <li class="tag">Jira & Confluence</li>
+              <li class="tag">Risk Management</li>
+              <li class="tag">Soft Skills</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 9 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Scrum & Лідерство</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="pm">Докладніше</button>
+                <a href="contacts.html?profession=pm" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 16. Business Analyst (BA) -->
+          <article class="card profession-card" data-category="mgmt">
+            <span class="card-badge badge-mgmt">Management & Analytics</span>
+            <h3>16. Business Analyst (BA)</h3>
+            <p>Аналіз бізнес-процесів замовника, моделювання за стандартом BPMN та написання чітких технічних вимог і User Stories.</p>
+            <ul class="tags-list">
+              <li class="tag">BPMN 2.0</li>
+              <li class="tag">User Stories</li>
+              <li class="tag">SRS Documents</li>
+              <li class="tag">UML</li>
+            </ul>
+            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 7 менторів</span>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">BPMN & Специфікації</span>
+              </div>
+              <div class="card-actions-grid">
+                <button type="button" class="btn btn-outline open-details-btn" data-profession="ba">Докладніше</button>
+                <a href="contacts.html?profession=ba" class="btn btn-primary">Консультація</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Інтерактивне модальне вікно для детального огляду пропозиції -->
+  <div id="professionModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Детальний огляд спеціальності">
+    <div class="modal-card">
+      <button type="button" id="modalCloseBtn" class="modal-close" aria-label="Закрити модальне вікно">&times;</button>
+      <div id="modalBody">
+        <!-- Вміст динамічно рендериться через js/main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="ITCompass">
+            <img src="images/logo.svg" alt="ITCompass Лого">
+          </a>
+          <p>
+            Каталог із 16 ключових IT-професій із вимогами, обов'язками та базою знань для старту в індустрії.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Меню</h4>
+          <ul>
+            <li><a href="index.html">Головна сторінка</a></li>
+            <li><a href="professions.html">Каталог професій</a></li>
+            <li><a href="profession-frontend.html">Frontend спеціальність</a></li>
+            <li><a href="mentors.html">Наші ментори</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Напрямки</h4>
+          <ul>
+            <li><a href="professions.html">Software Engineering</a></li>
+            <li><a href="professions.html">QA Engineering</a></li>
+            <li><a href="professions.html">Data, AI & ML</a></li>
+            <li><a href="professions.html">DevOps & Cloud</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Підтримка</h4>
+          <ul>
+            <li><a href="mailto:help@itcompass.ua">help@itcompass.ua</a></li>
+            <li>Пн-Пт: 09:00 - 19:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ITCompass. Розроблено для Лабораторної роботи №2 (Трофімов Г., КА-43).</p>
+        <p>100% W3C Validated HTML5 &bull; 16 IT-спеціальностей</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
