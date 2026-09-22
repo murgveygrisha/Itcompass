@@ -462,8 +462,9 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       try {
-        // Пробуємо відправити на Python бекенд (якщо запущений на порту 8000 або поточному хості)
-        const apiUrl = window.location.port === '8000' ? '/api/bookings' : 'http://127.0.0.1:8000/api/bookings';
+        // Пробуємо відправити на Python Flask бекенд
+        const isFlaskPort = window.location.port === '5000' || window.location.port === '8000';
+        const apiUrl = isFlaskPort ? '/api/bookings' : 'http://127.0.0.1:5000/api/bookings';
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

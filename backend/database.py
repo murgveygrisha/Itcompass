@@ -1,11 +1,22 @@
 """
-База даних SQLite для проєкту ITCompass.
+База даних SQLite для проєкту ITCompass (Flask).
 Створює таблиці та заповнює початковими даними (16 спеціальностей, ментори).
 """
 
 import sqlite3
 import json
 import os
+import random
+import string
+import sys
+
+# Налаштування кодування для Windows консолі
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except (AttributeError, io.UnsupportedOperation):
+        pass
 
 DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "itcompass.db")
 
@@ -13,6 +24,12 @@ def get_db_connection():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
+
+def generate_meet_code():
+    part1 = ''.join(random.choices(string.ascii_lowercase, k=3))
+    part2 = ''.join(random.choices(string.ascii_lowercase, k=4))
+    part3 = ''.join(random.choices(string.ascii_lowercase, k=3))
+    return f"https://meet.google.com/{part1}-{part2}-{part3}"
 
 def init_db():
     conn = get_db_connection()
@@ -65,6 +82,7 @@ def init_db():
         profession TEXT NOT NULL,
         session_type TEXT NOT NULL,
         user_message TEXT,
+        meet_url TEXT,
         status TEXT DEFAULT 'pending'
     )
     """)
@@ -92,9 +110,9 @@ def init_db():
         seed_professions(cursor)
         seed_mentors(cursor)
         conn.commit()
-        print("✅ Базу даних успішно ініціалізовано та заповнено початковими даними!")
+        print("✅ [Flask Backend] Базу даних SQLite (itcompass.db) успішно ініціалізовано!")
     else:
-        print("ℹ️ База даних вже містить записи.")
+        print("ℹ️ [Flask Backend] База даних SQLite готова до роботи.")
 
     conn.close()
 
@@ -126,10 +144,10 @@ def seed_professions(cursor):
             "Написання CRUD операцій, створення контролерів і маршрутів, написання простих SQL-запитів, документування API у Swagger.",
             "Проєктування схем баз даних, оптимізація складних SQL-запитів, робота з чергами повідомлень (RabbitMQ, Redis, Kafka).",
             "Мікросервісна архітектура, балансування навантаження, відмовостійкість систем, захист від DDoS та ін'єкцій.",
-            json.dumps(["Node.js / Python (FastAPI/Django) / Go", "PostgreSQL, MySQL, Redis", "Docker, REST API, GraphQL", "Git, Linux базові команди"]),
+            json.dumps(["Python (Flask/FastAPI/Django)", "Node.js / Go / Java", "PostgreSQL, MySQL, Redis", "Docker, REST API, Git"]),
             json.dumps(["Аналітичне мислення", "Вміння аргументувати архітектурні рішення", "Тайм-менеджмент"]),
             json.dumps([
-                {"name": "Node.js Official Documentation", "url": "https://nodejs.org/docs/latest/api/"},
+                {"name": "Flask Official Documentation", "url": "https://flask.palletsprojects.com/"},
                 {"name": "Python Docs", "url": "https://docs.python.org/3/"},
                 {"name": "PostgreSQL Documentation", "url": "https://www.postgresql.org/docs/"}
             ])
@@ -143,11 +161,11 @@ def seed_professions(cursor):
             "Розробка невеликих модулів фронтенду та підключення до власних ендпоінтів бекенду.",
             "Повний цикл розробки фічі (Full feature ownership): база даних + API + UI-компоненти.",
             "Вибір технологічного стеку для нових продуктів, оптимізація взаємодії клієнт-сервер.",
-            json.dumps(["TypeScript на фронтенді та бекенді", "Next.js / NestJS / Express", "PostgreSQL / Prisma ORM", "Docker, Nginx"]),
+            json.dumps(["TypeScript / Python", "React / Vue / Flask", "PostgreSQL / SQLite", "Docker, Nginx"]),
             json.dumps(["Гнучкість мислення", "Самостійність у вирішенні комплексних задач"]),
             json.dumps([
                 {"name": "Next.js Documentation", "url": "https://nextjs.org/docs"},
-                {"name": "Prisma ORM Guide", "url": "https://www.prisma.io/docs"}
+                {"name": "Flask Mega-Tutorial", "url": "https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"}
             ])
         ),
         (
@@ -191,11 +209,11 @@ def seed_professions(cursor):
             "Написання та підтримка автотестів за готовим шаблоном фреймворку, локалізація причин падіння тестів.",
             "Створення та розширення тест-фреймворків (Page Object Model), автоматизація API та E2E сценаріїв.",
             "Інтеграція автотестів у CI/CD пайплайни, оптимізація швидкості виконання, паралелізація тестів.",
-            json.dumps(["Python / Java / TypeScript", "Playwright, Selenium WebDriver", "PyTest / JUnit", "Git, Docker, CI/CD"]),
+            json.dumps(["Python / PyTest", "Playwright, Selenium WebDriver", "Postman / Newman", "Git, Docker, CI/CD"]),
             json.dumps(["Інженерний підхід", "Системне бачення архітектури тестування"]),
             json.dumps([
                 {"name": "Playwright Documentation", "url": "https://playwright.dev/"},
-                {"name": "Selenium Dev Guide", "url": "https://www.selenium.dev/documentation/"}
+                {"name": "PyTest Official Documentation", "url": "https://docs.pytest.org/"}
             ])
         ),
         (

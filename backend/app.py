@@ -1,100 +1,88 @@
 """
-Головний веб-сервер та REST API для платформи ITCompass на FastAPI.
-Підтримує автоматичну документацію Swagger за адресою: http://127.0.0.1:8000/docs
+Головний веб-сервер та REST API для платформи ITCompass на Flask.
+Підтримує роздачу фронтенду, REST API, SQLite та інтерактивну панель адміністратора за адресою /admin.
 """
 
 import os
+import sys
 import json
 import sqlite3
-from typing import List, Optional
-from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException, Query, status
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
+# Налаштування кодування для Windows консолі
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except (AttributeError, io.UnsupportedOperation):
+        pass
 
-from database import init_db, get_db_connection
-from models import BookingCreate, BookingResponse, ProfessionItem, MentorItem, ReviewCreate, ReviewResponse
+from flask import Flask, request, jsonify, send_from_directory, render_template_string, abort
+from flask_cors import CORS
 
-# Шлях до кореневої папки фронтенду D:\Web
+from database import init_db, get_db_connection, generate_meet_code
+
+# Шлях до кореня фронтенду D:\Web
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Ініціалізація БД при старті сервера
+app = Flask(__name__)
+CORS(app)  # Дозволяємо запити з будь-якого джерела
+
+# Ініціалізація бази даних при запуску
+with app.app_context():
     init_db()
-    yield
-
-app = FastAPI(
-    title="ITCompass API",
-    description="REST API для освітньої платформи ITCompass (довідник 16 професій, каталог менторів та букінг сесій).",
-    version="1.0.0",
-    lifespan=lifespan
-)
-
-# Налаштування CORS (Cross-Origin Resource Sharing)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # ------------------------------------------------------------------------------
-# 1. СТАТИЧНІ ФАЙЛИ ТА СТОРІНКИ ФРОНТЕНДУ
-# ------------------------------------------------------------------------------
-images_dir = os.path.join(BASE_DIR, "images")
-css_dir = os.path.join(BASE_DIR, "css")
-js_dir = os.path.join(BASE_DIR, "js")
-
-if os.path.exists(images_dir):
-    app.mount("/images", StaticFiles(directory=images_dir), name="images")
-if os.path.exists(css_dir):
-    app.mount("/css", StaticFiles(directory=css_dir), name="css")
-if os.path.exists(js_dir):
-    app.mount("/js", StaticFiles(directory=js_dir), name="js")
-
-@app.get("/", summary="Головна сторінка сайту")
-async def serve_index():
-    index_path = os.path.join(BASE_DIR, "index.html")
-    if os.path.exists(index_path):
-        return FileResponse(index_path)
-    return {"message": "ITCompass API працює. Відкрийте /docs для перегляду документації."}
-
-@app.get("/professions.html", include_in_schema=False)
-async def serve_professions():
-    return FileResponse(os.path.join(BASE_DIR, "professions.html"))
-
-@app.get("/profession-frontend.html", include_in_schema=False)
-async def serve_profession_frontend():
-    return FileResponse(os.path.join(BASE_DIR, "profession-frontend.html"))
-
-@app.get("/mentors.html", include_in_schema=False)
-async def serve_mentors_page():
-    return FileResponse(os.path.join(BASE_DIR, "mentors.html"))
-
-@app.get("/contacts.html", include_in_schema=False)
-async def serve_contacts_page():
-    return FileResponse(os.path.join(BASE_DIR, "contacts.html"))
-
-# ------------------------------------------------------------------------------
-# 2. REST API: СПЕЦІАЛЬНОСТІ ТА ДОКУМЕНТАЦІЯ (/api/professions)
+# 1. РОЗДАЧА ФРОНТЕНДУ ТА СТАТИЧНИХ ФАЙЛІВ
 # ------------------------------------------------------------------------------
 
-@app.get("/api/professions", response_model=List[ProfessionItem], summary="Отримати список усіх 16 професій")
-def get_professions(
-    category: Optional[str] = Query(None, description="Фільтр за категорією: Software Engineering, QA, Data, Інфраструктура, Design, Management"),
-    search: Optional[str] = Query(None, description="Пошук за ключовими словами або технологією")
-):
+@app.route('/')
+def serve_index():
+    return send_from_directory(BASE_DIR, 'index.html')
+
+@app.route('/professions.html')
+def serve_professions():
+    return send_from_directory(BASE_DIR, 'professions.html')
+
+@app.route('/profession-frontend.html')
+def serve_profession_frontend():
+    return send_from_directory(BASE_DIR, 'profession-frontend.html')
+
+@app.route('/mentors.html')
+def serve_mentors():
+    return send_from_directory(BASE_DIR, 'mentors.html')
+
+@app.route('/contacts.html')
+def serve_contacts():
+    return send_from_directory(BASE_DIR, 'contacts.html')
+
+@app.route('/css/<path:filename>')
+def serve_css(filename):
+    return send_from_directory(os.path.join(BASE_DIR, 'css'), filename)
+
+@app.route('/js/<path:filename>')
+def serve_js(filename):
+    return send_from_directory(os.path.join(BASE_DIR, 'js'), filename)
+
+@app.route('/images/<path:filename>')
+def serve_images(filename):
+    return send_from_directory(os.path.join(BASE_DIR, 'images'), filename)
+
+# ------------------------------------------------------------------------------
+# 2. REST API: СПЕЦІАЛЬНОСТІ (/api/professions)
+# ------------------------------------------------------------------------------
+
+@app.route('/api/professions', methods=['GET'])
+def get_professions():
+    category = request.args.get('category')
+    search = request.args.get('search')
+
     conn = get_db_connection()
     cursor = conn.cursor()
 
     query = "SELECT * FROM professions WHERE 1=1"
     params = []
 
-    if category:
+    if category and category != 'all':
         query += " AND category LIKE ?"
         params.append(f"%{category}%")
 
@@ -109,24 +97,25 @@ def get_professions(
 
     result = []
     for row in rows:
-        result.append(ProfessionItem(
-            id=row["id"],
-            slug=row["slug"],
-            title=row["title"],
-            category=row["category"],
-            badge_class=row["badge_class"],
-            description=row["description"],
-            junior_duties=row["junior_duties"],
-            middle_duties=row["middle_duties"],
-            senior_duties=row["senior_duties"],
-            hard_skills=json.loads(row["hard_skills"]),
-            soft_skills=json.loads(row["soft_skills"]),
-            docs=json.loads(row["docs_json"])
-        ))
-    return result
+        result.append({
+            "id": row["id"],
+            "slug": row["slug"],
+            "title": row["title"],
+            "category": row["category"],
+            "badge_class": row["badge_class"],
+            "description": row["description"],
+            "junior_duties": row["junior_duties"],
+            "middle_duties": row["middle_duties"],
+            "senior_duties": row["senior_duties"],
+            "hard_skills": json.loads(row["hard_skills"]),
+            "soft_skills": json.loads(row["soft_skills"]),
+            "docs": json.loads(row["docs_json"])
+        })
 
-@app.get("/api/professions/{slug}", response_model=ProfessionItem, summary="Отримати деталі окремої професії")
-def get_profession_by_slug(slug: str):
+    return jsonify(result), 200
+
+@app.route('/api/professions/<slug>', methods=['GET'])
+def get_profession(slug):
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM professions WHERE slug = ? OR id = ?", (slug, slug))
@@ -134,29 +123,30 @@ def get_profession_by_slug(slug: str):
     conn.close()
 
     if not row:
-        raise HTTPException(status_code=404, detail="Спеціальність не знайдена")
+        return jsonify({"error": "Спеціальність не знайдена"}), 404
 
-    return ProfessionItem(
-        id=row["id"],
-        slug=row["slug"],
-        title=row["title"],
-        category=row["category"],
-        badge_class=row["badge_class"],
-        description=row["description"],
-        junior_duties=row["junior_duties"],
-        middle_duties=row["middle_duties"],
-        senior_duties=row["senior_duties"],
-        hard_skills=json.loads(row["hard_skills"]),
-        soft_skills=json.loads(row["soft_skills"]),
-        docs=json.loads(row["docs_json"])
-    )
+    return jsonify({
+        "id": row["id"],
+        "slug": row["slug"],
+        "title": row["title"],
+        "category": row["category"],
+        "badge_class": row["badge_class"],
+        "description": row["description"],
+        "junior_duties": row["junior_duties"],
+        "middle_duties": row["middle_duties"],
+        "senior_duties": row["senior_duties"],
+        "hard_skills": json.loads(row["hard_skills"]),
+        "soft_skills": json.loads(row["soft_skills"]),
+        "docs": json.loads(row["docs_json"])
+    }), 200
 
 # ------------------------------------------------------------------------------
 # 3. REST API: МЕНТОРИ (/api/mentors)
 # ------------------------------------------------------------------------------
 
-@app.get("/api/mentors", response_model=List[MentorItem], summary="Отримати список практикуючих менторів")
-def get_mentors(tag: Optional[str] = Query(None, description="Фільтр за тегом технології (напр. React, Python)")):
+@app.route('/api/mentors', methods=['GET'])
+def get_mentors():
+    tag = request.args.get('tag')
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -170,24 +160,25 @@ def get_mentors(tag: Optional[str] = Query(None, description="Фільтр за 
 
     result = []
     for row in rows:
-        result.append(MentorItem(
-            id=row["id"],
-            slug=row["slug"],
-            name=row["name"],
-            title=row["title"],
-            company=row["company"],
-            experience_years=row["experience_years"],
-            hourly_rate=row["hourly_rate"],
-            tags=json.loads(row["tags"]),
-            cases=row["cases"],
-            initials=row["initials"],
-            avatar_bg=row["avatar_bg"],
-            avatar_color=row["avatar_color"]
-        ))
-    return result
+        result.append({
+            "id": row["id"],
+            "slug": row["slug"],
+            "name": row["name"],
+            "title": row["title"],
+            "company": row["company"],
+            "experience_years": row["experience_years"],
+            "hourly_rate": row["hourly_rate"],
+            "tags": json.loads(row["tags"]),
+            "cases": row["cases"],
+            "initials": row["initials"],
+            "avatar_bg": row["avatar_bg"],
+            "avatar_color": row["avatar_color"]
+        })
 
-@app.get("/api/mentors/{mentor_id}", response_model=MentorItem, summary="Отримати профіль ментора за ID")
-def get_mentor_by_id(mentor_id: int):
+    return jsonify(result), 200
+
+@app.route('/api/mentors/<int:mentor_id>', methods=['GET'])
+def get_mentor(mentor_id):
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM mentors WHERE id = ?", (mentor_id,))
@@ -195,67 +186,75 @@ def get_mentor_by_id(mentor_id: int):
     conn.close()
 
     if not row:
-        raise HTTPException(status_code=404, detail="Ментор не знайдений")
+        return jsonify({"error": "Ментор не знайдений"}), 404
 
-    return MentorItem(
-        id=row["id"],
-        slug=row["slug"],
-        name=row["name"],
-        title=row["title"],
-        company=row["company"],
-        experience_years=row["experience_years"],
-        hourly_rate=row["hourly_rate"],
-        tags=json.loads(row["tags"]),
-        cases=row["cases"],
-        initials=row["initials"],
-        avatar_bg=row["avatar_bg"],
-        avatar_color=row["avatar_color"]
-    )
+    return jsonify({
+        "id": row["id"],
+        "slug": row["slug"],
+        "name": row["name"],
+        "title": row["title"],
+        "company": row["company"],
+        "experience_years": row["experience_years"],
+        "hourly_rate": row["hourly_rate"],
+        "tags": json.loads(row["tags"]),
+        "cases": row["cases"],
+        "initials": row["initials"],
+        "avatar_bg": row["avatar_bg"],
+        "avatar_color": row["avatar_color"]
+    }), 200
 
 # ------------------------------------------------------------------------------
 # 4. REST API: ЗАЯВКИ ТА БРОНЮВАННЯ (/api/bookings)
 # ------------------------------------------------------------------------------
 
-@app.post("/api/bookings", response_model=BookingResponse, status_code=status.HTTP_201_CREATED, summary="Створити нову заявку на консультацію")
-def create_booking(booking: BookingCreate):
+@app.route('/api/bookings', methods=['POST'])
+def create_booking():
+    data = request.get_json() or {}
+
+    name = data.get('userName', '').strip()
+    email = data.get('userEmail', '').strip()
+    phone = data.get('userPhone', '').strip()
+    profession = data.get('professionSelect', '').strip()
+    session_type = data.get('sessionType', 'consultation').strip()
+    message = data.get('userMessage', '').strip()
+
+    if not name or not email or not profession:
+        return jsonify({"error": "Обов'язкові поля: userName, userEmail, professionSelect"}), 400
+
+    meet_url = generate_meet_code()
+
     conn = get_db_connection()
     cursor = conn.cursor()
-
     try:
         cursor.execute("""
-        INSERT INTO bookings (user_name, user_email, user_phone, profession, session_type, user_message, status)
-        VALUES (?, ?, ?, ?, ?, ?, 'pending')
-        """, (
-            booking.userName,
-            str(booking.userEmail),
-            booking.userPhone,
-            booking.professionSelect,
-            booking.sessionType,
-            booking.userMessage
-        ))
+        INSERT INTO bookings (user_name, user_email, user_phone, profession, session_type, user_message, meet_url, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')
+        """, (name, email, phone, profession, session_type, message, meet_url))
         conn.commit()
         booking_id = cursor.lastrowid
         conn.close()
 
-        return BookingResponse(
-            success=True,
-            booking_id=booking_id,
-            message="Дякуємо! Вашу заявку успішно зареєстровано в базі даних. Ментор зв'яжеться з вами найближчим часом.",
-            data={
-                "name": booking.userName,
-                "email": str(booking.userEmail),
-                "profession": booking.professionSelect,
-                "session_type": booking.sessionType,
+        return jsonify({
+            "success": True,
+            "booking_id": booking_id,
+            "message": "Заявку успішно зареєстровано в базі даних SQLite!",
+            "meet_url": meet_url,
+            "data": {
+                "name": name,
+                "email": email,
+                "profession": profession,
+                "session_type": session_type,
                 "status": "pending"
             }
-        )
+        }), 201
     except Exception as e:
         conn.rollback()
         conn.close()
-        raise HTTPException(status_code=500, detail=f"Помилка при збереженні заявки: {str(e)}")
+        return jsonify({"error": f"Помилка бази даних: {str(e)}"}), 500
 
-@app.get("/api/bookings", summary="Переглянути всі заброньовані консультації (Адмін-панель)")
-def list_bookings(status_filter: Optional[str] = Query(None, description="Фільтр: pending, confirmed, completed, cancelled")):
+@app.route('/api/bookings', methods=['GET'])
+def list_bookings():
+    status_filter = request.args.get('status')
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -267,87 +266,217 @@ def list_bookings(status_filter: Optional[str] = Query(None, description="Філ
     rows = cursor.fetchall()
     conn.close()
 
-    return [dict(row) for row in rows]
+    return jsonify([dict(row) for row in rows]), 200
 
-@app.patch("/api/bookings/{booking_id}/status", summary="Оновити статус заявки")
-def update_booking_status(booking_id: int, new_status: str = Query(..., regex="^(pending|confirmed|completed|cancelled)$")):
+@app.route('/api/bookings/<int:booking_id>/status', methods=['PATCH', 'POST'])
+def update_booking_status(booking_id):
+    data = request.get_json() or {}
+    new_status = data.get('status') or request.args.get('status')
+
+    if new_status not in ['pending', 'confirmed', 'completed', 'cancelled']:
+        return jsonify({"error": "Невалідний статус"}), 400
+
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("UPDATE bookings SET status = ? WHERE id = ?", (new_status, booking_id))
     conn.commit()
-    rows_affected = cursor.rowcount
+    affected = cursor.rowcount
     conn.close()
 
-    if rows_affected == 0:
-        raise HTTPException(status_code=404, detail="Заявку не знайдено")
+    if affected == 0:
+        return jsonify({"error": "Заявку не знайдено"}), 404
 
-    return {"success": True, "booking_id": booking_id, "new_status": new_status}
+    return jsonify({"success": True, "booking_id": booking_id, "new_status": new_status}), 200
 
 # ------------------------------------------------------------------------------
-# 5. REST API: ВІДГУКИ (/api/reviews)
+# 5. ВЕБ-ПАНЕЛЬ АДМІНІСТРАТОРА (/admin)
 # ------------------------------------------------------------------------------
 
-@app.post("/api/reviews", response_model=dict, status_code=status.HTTP_201_CREATED, summary="Додати відгук про ментора")
-def add_review(review: ReviewCreate):
+ADMIN_HTML = """
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>ITCompass — Панель адміністратора (Flask)</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { background-color: #0F172A; color: #F1F5F9; font-family: 'Inter', sans-serif; }
+    .admin-container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 20px; margin-bottom: 25px; }
+    .stat-card { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 20px; text-align: center; }
+    .stat-number { font-family: 'JetBrains Mono', monospace; font-size: 2.2rem; font-weight: 700; color: #3B82F6; }
+    .admin-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #1E293B; border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
+    .admin-table th, .admin-table td { padding: 14px 16px; border-bottom: 1px solid #334155; text-align: left; font-size: 0.95rem; }
+    .admin-table th { background: #0B1329; color: #94A3B8; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; }
+    .admin-table tr:hover { background: #273549; }
+    .badge-status { padding: 4px 10px; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; }
+    .status-pending { background: #FEF3C7; color: #92400E; }
+    .status-confirmed { background: #D1FAE5; color: #065F46; }
+    .status-completed { background: #DBEAFE; color: #1E40AF; }
+    .status-cancelled { background: #FEE2E2; color: #991B1B; }
+    .btn-action { padding: 4px 8px; font-size: 0.8rem; border-radius: 6px; cursor: pointer; border: none; font-weight: 600; }
+    .btn-confirm { background: #10B981; color: white; }
+    .btn-cancel { background: #EF4444; color: white; }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <div class="admin-header">
+      <div>
+        <h1 style="color: #FFFFFF; font-size: 1.8rem; margin-bottom: 4px;">🛠 ITCompass — Панель адміністратора</h1>
+        <p style="color: #94A3B8; margin-bottom: 0;">Керування заявками на консультації (Flask + SQLite itcompass.db)</p>
+      </div>
+      <div>
+        <a href="/" class="btn btn-primary" target="_blank">🌐 Відкрити сайт &nearr;</a>
+      </div>
+    </div>
+
+    <!-- Статистичні картки -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px;">
+      <div class="stat-card">
+        <div class="stat-number">{{ stats.total_professions }}</div>
+        <div style="color: #94A3B8; font-size: 0.85rem; margin-top: 4px;">IT-спеціальностей</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: #10B981;">{{ stats.total_mentors }}</div>
+        <div style="color: #94A3B8; font-size: 0.85rem; margin-top: 4px;">Менторів у базі</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: #F59E0B;">{{ stats.total_bookings }}</div>
+        <div style="color: #94A3B8; font-size: 0.85rem; margin-top: 4px;">Всього заявок</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="color: #A855F7;">{{ stats.pending_bookings }}</div>
+        <div style="color: #94A3B8; font-size: 0.85rem; margin-top: 4px;">Очікують відповіді</div>
+      </div>
+    </div>
+
+    <h2 style="color: #FFFFFF; font-size: 1.3rem;">📋 Останні заявки від студентів та новачків</h2>
+
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Час</th>
+          <th>Студент</th>
+          <th>Контакти</th>
+          <th>Спеціальність</th>
+          <th>Формат</th>
+          <th>Google Meet</th>
+          <th>Статус</th>
+          <th>Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for b in bookings %}
+        <tr>
+          <td style="font-family: monospace; color: #94A3B8;">#{{ b.id }}</td>
+          <td style="font-size: 0.85rem; color: #94A3B8;">{{ b.created_at[:16] }}</td>
+          <td><strong>{{ b.user_name }}</strong></td>
+          <td style="font-size: 0.85rem;">
+            {{ b.user_email }}<br>
+            <span style="color: #94A3B8;">{{ b.user_phone or '—' }}</span>
+          </td>
+          <td><span class="tag" style="background:#334155; color:#F8FAFC;">{{ b.profession }}</span></td>
+          <td style="font-size: 0.85rem;">{{ b.session_type }}</td>
+          <td>
+            {% if b.meet_url %}
+              <a href="{{ b.meet_url }}" target="_blank" style="color: #38BDF8; font-size: 0.85rem;">Приєднатися &nearr;</a>
+            {% else %}
+              —
+            {% endif %}
+          </td>
+          <td>
+            <span class="badge-status status-{{ b.status }}">
+              {{ b.status }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-action btn-confirm" onclick="updateStatus({{ b.id }}, 'confirmed')">&check;</button>
+            <button class="btn-action btn-cancel" onclick="updateStatus({{ b.id }}, 'cancelled')">&times;</button>
+          </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="9" style="text-align: center; color: #94A3B8; padding: 40px;">
+            Поки що немає зареєстрованих заявок. Спробуйте заповнити форму на сторінці <a href="/contacts.html" target="_blank" style="color: #38BDF8;">Контакти</a>!
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    async function updateStatus(id, newStatus) {
+      const res = await fetch('/api/bookings/' + id + '/status', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({status: newStatus})
+      });
+      if (res.ok) {
+        window.location.reload();
+      } else {
+        alert('Помилка оновлення статусу');
+      }
+    }
+  </script>
+</body>
+</html>
+"""
+
+@app.route('/admin')
+def admin_panel():
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("""
-    INSERT INTO reviews (mentor_id, author_name, rating, comment)
-    VALUES (?, ?, ?, ?)
-    """, (review.mentor_id, review.author_name, review.rating, review.comment))
-    conn.commit()
-    review_id = cursor.lastrowid
-    conn.close()
 
-    return {"success": True, "review_id": review_id, "message": "Відгук успішно опубліковано!"}
+    cursor.execute("SELECT * FROM bookings ORDER BY created_at DESC")
+    bookings = cursor.fetchall()
 
-@app.get("/api/reviews/{mentor_id}", response_model=List[ReviewResponse], summary="Отримати всі відгуки для ментора")
-def get_mentor_reviews(mentor_id: int):
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM reviews WHERE mentor_id = ? ORDER BY created_at DESC", (mentor_id,))
-    rows = cursor.fetchall()
-    conn.close()
-
-    return [
-        ReviewResponse(
-            id=row["id"],
-            created_at=str(row["created_at"]),
-            author_name=row["author_name"],
-            rating=row["rating"],
-            comment=row["comment"]
-        ) for row in rows
-    ]
-
-# ------------------------------------------------------------------------------
-# 6. СИСТЕМНИЙ СТАТУС (HEALTH CHECK)
-# ------------------------------------------------------------------------------
-@app.get("/api/health", summary="Перевірка працездатності сервера та БД")
-def health_check():
-    conn = get_db_connection()
-    cursor = conn.cursor()
     cursor.execute("SELECT COUNT(*) FROM professions")
-    professions_count = cursor.fetchone()[0]
+    total_professions = cursor.fetchone()[0]
+
     cursor.execute("SELECT COUNT(*) FROM mentors")
-    mentors_count = cursor.fetchone()[0]
+    total_mentors = cursor.fetchone()[0]
+
     cursor.execute("SELECT COUNT(*) FROM bookings")
-    bookings_count = cursor.fetchone()[0]
+    total_bookings = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM bookings WHERE status = 'pending'")
+    pending_bookings = cursor.fetchone()[0]
+
     conn.close()
 
-    return {
-        "status": "healthy",
-        "service": "ITCompass Backend",
-        "framework": "FastAPI",
-        "database": "SQLite (itcompass.db)",
-        "stats": {
-            "professions_registered": professions_count,
-            "mentors_registered": mentors_count,
-            "bookings_total": bookings_count
-        }
+    stats = {
+        "total_professions": total_professions,
+        "total_mentors": total_mentors,
+        "total_bookings": total_bookings,
+        "pending_bookings": pending_bookings
     }
 
-if __name__ == "__main__":
-    import uvicorn
-    print("🚀 Запуск сервера ITCompass на http://127.0.0.1:8000")
-    print("📖 Swagger інтерактивна документація: http://127.0.0.1:8000/docs")
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+    return render_template_string(ADMIN_HTML, bookings=bookings, stats=stats)
+
+# ------------------------------------------------------------------------------
+# 6. СТАТУС СЕРВЕРА
+# ------------------------------------------------------------------------------
+
+@app.route('/api/health')
+def health():
+    return jsonify({
+        "status": "healthy",
+        "service": "ITCompass Backend",
+        "framework": "Python Flask",
+        "database": "SQLite (itcompass.db)",
+        "admin_url": "/admin"
+    }), 200
+
+if __name__ == '__main__':
+    print("=" * 60)
+    print("🚀 [Flask Backend] Сервер ITCompass запущено успішно!")
+    print("🌐 Головний сайт:                 http://127.0.0.1:5000/")
+    print("🛠 Панель адміністратора:         http://127.0.0.1:5000/admin")
+    print("📡 API професій:                  http://127.0.0.1:5000/api/professions")
+    print("=" * 60)
+    app.run(host='127.0.0.1', port=5000, debug=True)
