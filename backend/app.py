@@ -5,6 +5,7 @@
 
 import os
 import sys
+import io
 import json
 import sqlite3
 
@@ -13,10 +14,10 @@ if sys.platform.startswith('win'):
     try:
         sys.stdout.reconfigure(encoding='utf-8')
         sys.stderr.reconfigure(encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
+    except (AttributeError, io.UnsupportedOperation, Exception):
         pass
 
-from flask import Flask, request, jsonify, send_from_directory, render_template_string, abort
+from flask import Flask, request, jsonify, send_from_directory, render_template_string, abort, redirect
 from flask_cors import CORS
 
 from database import init_db, get_db_connection, generate_meet_code
@@ -32,7 +33,7 @@ with app.app_context():
     init_db()
 
 # ------------------------------------------------------------------------------
-# 1. РОЗДАЧА ФРОНТЕНДУ ТА СТАТИЧНИХ ФАЙЛІВ
+# 1. РОЗДАЧА ФРОНТЕНДУ ТА СТАТИЧНИХ ФАЙЛІВ (100% ЧИСТИЙ HTML/CSS + PYTHON)
 # ------------------------------------------------------------------------------
 
 @app.route('/')
@@ -53,15 +54,24 @@ def serve_mentors():
 
 @app.route('/contacts.html')
 def serve_contacts():
-    return send_from_directory(BASE_DIR, 'contacts.html')
+    contacts_path = os.path.join(BASE_DIR, 'contacts.html')
+    with open(contacts_path, 'r', encoding='utf-8') as f:
+        html = f.read()
+
+    # Автоматичне виділення обраної професії з посилання ?profession=...
+    selected_prof = request.args.get('profession')
+    if selected_prof:
+        html = html.replace(f'value="{selected_prof}"', f'value="{selected_prof}" selected', 1)
+
+    # Відображення сповіщення про успішне надсилання заявки ?success=1
+    if request.args.get('success'):
+        html = html.replace('id="formSuccess" style="display: none;', 'id="formSuccess" style="display: block;')
+
+    return html
 
 @app.route('/css/<path:filename>')
 def serve_css(filename):
     return send_from_directory(os.path.join(BASE_DIR, 'css'), filename)
-
-@app.route('/js/<path:filename>')
-def serve_js(filename):
-    return send_from_directory(os.path.join(BASE_DIR, 'js'), filename)
 
 @app.route('/images/<path:filename>')
 def serve_images(filename):
@@ -204,8 +214,38 @@ def get_mentor(mentor_id):
     }), 200
 
 # ------------------------------------------------------------------------------
-# 4. REST API: ЗАЯВКИ ТА БРОНЮВАННЯ (/api/bookings)
+# 4. ЗАЯВКИ ТА БРОНЮВАННЯ: HTML FORMS ТА REST API (/submit-booking, /api/bookings)
 # ------------------------------------------------------------------------------
+
+@app.route('/submit-booking', methods=['POST'])
+def submit_booking():
+    """Обробка класичної семантичної HTML-форми без JavaScript"""
+    name = request.form.get('userName', '').strip()
+    email = request.form.get('userEmail', '').strip()
+    phone = request.form.get('userPhone', '').strip()
+    profession = request.form.get('professionSelect', '').strip()
+    session_type = request.form.get('sessionType', 'consultation').strip()
+    message = request.form.get('userMessage', '').strip()
+
+    if not name or not email or not profession:
+        return "<h3 style='color:#DC2626; font-family: sans-serif; padding: 2rem;'>Помилка: будь ласка, заповніть обов'язкові поля! <br><br><a href='/contacts.html'>&larr; Повернутися назад до форми</a></h3>", 400
+
+    meet_url = generate_meet_code()
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""
+        INSERT INTO bookings (user_name, user_email, user_phone, profession, session_type, user_message, meet_url, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')
+        """, (name, email, phone, profession, session_type, message, meet_url))
+        conn.commit()
+        conn.close()
+        return redirect('/contacts.html?success=1')
+    except Exception as e:
+        conn.rollback()
+        conn.close()
+        return f"<h3 style='color:#DC2626; font-family: sans-serif; padding: 2rem;'>Помилка збереження в базу даних: {e}</h3>", 500
 
 @app.route('/api/bookings', methods=['POST'])
 def create_booking():
