@@ -69,6 +69,10 @@ def serve_contacts():
 
     return html
 
+@app.route('/success.html')
+def serve_success():
+    return send_from_directory(BASE_DIR, 'success.html')
+
 @app.route('/css/<path:filename>')
 def serve_css(filename):
     return send_from_directory(os.path.join(BASE_DIR, 'css'), filename)
