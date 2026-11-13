@@ -1,0 +1,170 @@
+/* ==========================================================================
+   ITCompass — forms.css
+   Стилізація форм: поля, кнопки, стани фокуса та клієнтська валідація
+   (HTML5-атрибути + CSS-псевдокласи :user-invalid / :user-valid).
+   ========================================================================== */
+
+/* 1. Контейнер форми */
+.form-container {
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  padding: 2.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.form-container-flush {
+  margin: 0;
+}
+
+.form-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+/* 2. Підписи полів */
+label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.4rem;
+}
+
+/* 3. Поля вводу */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-dark);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-appearance: none; /* однаковий вигляд у Safari */
+  appearance: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+/* 4. Стан фокуса */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* 5. Чекбокси */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.checkbox-group input {
+  margin-top: 0.25rem;
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.checkbox-group label {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   6. Клієнтська валідація (CSS + HTML5-атрибути required/pattern/minlength)
+   :user-invalid — поле стає «невалідним» лише після взаємодії користувача,
+   на відміну від :invalid, який спрацьовує одразу при завантаженні.
+   ========================================================================== */
+
+/* Невалідне поле після взаємодії */
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--color-error);
+  background-color: var(--color-error-light);
+}
+
+input:user-invalid:focus,
+select:user-invalid:focus,
+textarea:user-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* Валідне заповнене поле */
+input:user-valid,
+select:user-valid {
+  border-color: var(--color-accent);
+}
+
+/* Повідомлення про помилку: приховане за замовчуванням */
+.error-message {
+  display: none;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--color-error);
+  font-weight: 500;
+}
+
+/* Показуємо повідомлення, коли сусіднє поле невалідне */
+input:user-invalid ~ .error-message,
+select:user-invalid ~ .error-message,
+textarea:user-invalid ~ .error-message {
+  display: block;
+}
+
+/* Чекбокс згоди: підсвічуємо підпис */
+.checkbox-group input:user-invalid + label {
+  color: var(--color-error);
+}
+
+/* Підказка-зірочка для обов'язкових полів */
+.required-note {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* 7. Адаптивність форм */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1.25rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px; /* iOS Safari не масштабує сторінку при фокусі */
+  }
+}

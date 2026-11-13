@@ -20,6 +20,13 @@
         <img src="images/logo.svg" alt="Логотип платформи ITCompass">
       </a>
 
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Відкрити меню">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
       <nav aria-label="Головне меню">
         <ul>
           <li><a href="index.html">Головна</a></li>
@@ -36,21 +43,21 @@
 
   <!-- Main -->
   <main>
-    <div class="container" style="padding-top: 2.5rem; padding-bottom: 1.5rem; text-align: center;">
+    <div class="container page-head">
       <h1>Зв'яжіться з нами та оберіть свого наставника</h1>
-      <p style="color: var(--color-text-muted); max-width: 680px; margin: 0 auto;">
+      <p>
         Заповніть заявку нижче, вкажіть одну з 16 IT-спеціальностей або технологію, і наш координатор зв'яжеться з вами протягом 2 годин для організації сесії.
       </p>
     </div>
 
-    <section style="padding-top: 0;">
+    <section class="section-flush-top">
       <div class="container">
-        <div class="grid-2" style="align-items: start;">
+        <div class="grid-2 align-start">
 
           <!-- Ліва колонка: Форма <form> -->
-          <div class="form-container" style="margin: 0;">
-            <h2 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Форма запису на консультацію</h2>
-            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+          <div class="form-container form-container-flush">
+            <h2 class="form-title">Форма запису на консультацію</h2>
+            <p class="required-note">
               Поля, позначені зірочкою (*), є обов'язковими для заповнення.
             </p>
 
@@ -58,17 +65,20 @@
             <form id="contactForm" action="success.html" method="GET">
               <div class="form-group">
                 <label for="userName">Ваше повне ім'я *</label>
-                <input type="text" id="userName" name="userName" placeholder="Наприклад: Григорій Трофімов" required>
+                <input type="text" id="userName" name="userName" placeholder="Наприклад: Григорій Трофімов" autocomplete="name" minlength="3" required>
+                <small class="error-message">Будь ласка, вкажіть ваше ім'я (щонайменше 3 символи).</small>
               </div>
 
               <div class="form-group">
                 <label for="userEmail">Контактний Email *</label>
-                <input type="email" id="userEmail" name="userEmail" placeholder="name@example.com" required>
+                <input type="email" id="userEmail" name="userEmail" placeholder="name@example.com" autocomplete="email" required>
+                <small class="error-message">Введіть коректну email-адресу, наприклад name@example.com.</small>
               </div>
 
               <div class="form-group">
                 <label for="userPhone">Номер телефону</label>
-                <input type="tel" id="userPhone" name="userPhone" placeholder="+38 (0XX) XXX-XX-XX">
+                <input type="tel" id="userPhone" name="userPhone" placeholder="+38 (0XX) XXX-XX-XX" autocomplete="tel" pattern="\+?[0-9\s\-()]{10,17}">
+                <small class="error-message">Введіть номер у форматі +38 (0XX) XXX-XX-XX.</small>
               </div>
 
               <div class="form-group">
@@ -114,6 +124,7 @@
                     <option value="undecided">Ще не визначився (потрібна профорієнтація)</option>
                   </optgroup>
                 </select>
+                <small class="error-message">Будь ласка, оберіть спеціальність зі списку.</small>
               </div>
 
               <div class="form-group">
@@ -138,7 +149,7 @@
                 </label>
               </div>
 
-              <button type="submit" class="btn btn-accent" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+              <button type="submit" class="btn btn-accent btn-block">
                 Надіслати заявку на сесію
               </button>
             </form>
@@ -146,39 +157,39 @@
 
           <!-- Права колонка: Контактна інформація та FAQ -->
           <div>
-            <div class="card" style="margin-bottom: 2rem;">
+            <div class="card card-spaced">
               <h2>Контактні дані офісу</h2>
-              <p style="color: var(--color-text-muted);">
+              <p class="text-muted">
                 Маєте питання щодо співпраці чи корпоративного навчання? Звертайтеся до нашої команди підтримки:
               </p>
 
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
-                <li style="display: flex; gap: 0.75rem; align-items: center;">
-                  <span style="font-size: 1.25rem;">📍</span>
+              <ul class="contact-list">
+                <li>
+                  <span class="contact-icon">📍</span>
                   <div>
                     <strong>Адреса:</strong>
-                    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--color-text-muted);">м. Київ, вул. Політехнічна, 16 (НТУУ «КПІ ім. Ігоря Сікорського»)</p>
+                    <p>м. Київ, вул. Політехнічна, 16 (НТУУ «КПІ ім. Ігоря Сікорського»)</p>
                   </div>
                 </li>
-                <li style="display: flex; gap: 0.75rem; align-items: center;">
-                  <span style="font-size: 1.25rem;">📧</span>
+                <li>
+                  <span class="contact-icon">📧</span>
                   <div>
                     <strong>Електронна пошта:</strong>
-                    <p style="margin-bottom: 0; font-size: 0.9rem;"><a href="mailto:info@itcompass.ua">info@itcompass.ua</a></p>
+                    <p><a href="mailto:info@itcompass.ua">info@itcompass.ua</a></p>
                   </div>
                 </li>
-                <li style="display: flex; gap: 0.75rem; align-items: center;">
-                  <span style="font-size: 1.25rem;">📞</span>
+                <li>
+                  <span class="contact-icon">📞</span>
                   <div>
                     <strong>Телефон гарячої лінії:</strong>
-                    <p style="margin-bottom: 0; font-size: 0.9rem;"><a href="tel:+380442048000">+38 (044) 204-80-00</a></p>
+                    <p><a href="tel:+380442048000">+38 (044) 204-80-00</a></p>
                   </div>
                 </li>
-                <li style="display: flex; gap: 0.75rem; align-items: center;">
-                  <span style="font-size: 1.25rem;">⏰</span>
+                <li>
+                  <span class="contact-icon">⏰</span>
                   <div>
                     <strong>Графік консультацій:</strong>
-                    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--color-text-muted);">Пн – Пт: 09:00 – 20:00, Сб: 10:00 – 17:00</p>
+                    <p>Пн – Пт: 09:00 – 20:00, Сб: 10:00 – 17:00</p>
                   </div>
                 </li>
               </ul>
@@ -187,22 +198,22 @@
             <!-- FAQ Блок -->
             <div class="card">
               <h3>Часті запитання (FAQ)</h3>
-              <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+              <div class="faq-list">
                 <div>
-                  <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem;">Як відбувається онлайн-сесія?</h4>
-                  <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">
+                  <h4>Як відбувається онлайн-сесія?</h4>
+                  <p>
                     Після підтвердження заявки ви та ментор отримуєте посилання на відеокімнату Google Meet у кабінеті та на пошту.
                   </p>
                 </div>
-                <div style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
-                  <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem;">Чи можу я скасувати або перенести зустріч?</h4>
-                  <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">
+                <div class="faq-item">
+                  <h4>Чи можу я скасувати або перенести зустріч?</h4>
+                  <p>
                     Так, скасування без штрафу доступне за 24 години до запланованого початку в особистому кабінеті.
                   </p>
                 </div>
-                <div style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
-                  <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem;">Як перевіряються ментори платформи?</h4>
-                  <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0;">
+                <div class="faq-item">
+                  <h4>Як перевіряються ментори платформи?</h4>
+                  <p>
                     Кожен наставник проходить верифікацію комерційного досвіду (від 3+ років), співбесіду з модератором платформи та має підтверджений профіль LinkedIn.
                   </p>
                 </div>
@@ -260,7 +271,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 ITCompass. Створено для Лабораторної роботи №2 (Трофімов Г., КА-43, ННК ІПСА).</p>
+        <p>&copy; 2026 ITCompass. Створено для Лабораторних робіт №2–3 (Трофімов Г., КА-43, ННК ІПСА).</p>
         <p>100% W3C Validated HTML5 &bull; Чиста семантика &bull; Python Flask Backend</p>
       </div>
     </div>

@@ -1,0 +1,338 @@
+/* ==========================================================================
+   ITCompass — layout.css
+   Макет: контейнер, шапка, адаптивна навігація (бургер-меню),
+   сітки Grid/Flexbox, секції, підвал та медіазапити.
+   ========================================================================== */
+
+/* 1. Контейнер */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* 2. Шапка (Header) */
+header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 70px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* 3. Навігація */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav a {
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: block;
+}
+
+nav a:hover, nav a.active {
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* 4. Бургер-меню (CSS-only, прихований чекбокс) */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.nav-toggle-btn {
+  display: none; /* показується лише на мобільних */
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav-toggle-btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+.nav-toggle-btn span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-dark);
+  border-radius: var(--radius-full);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* Анімація бургера у хрестик */
+.nav-toggle:checked ~ .nav-toggle-btn span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle:checked ~ .nav-toggle-btn span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle:checked ~ .nav-toggle-btn span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Видима рамка фокуса для клавіатурної навігації */
+.nav-toggle:focus-visible ~ .nav-toggle-btn {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 5. Сітки (CSS Grid) */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+/* 6. Секції */
+section {
+  padding: 3.5rem 0;
+}
+
+.section-alt {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-flush-top {
+  padding-top: 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-head {
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+.page-head p {
+  color: var(--color-text-muted);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* 7. Підвал (Footer) */
+footer {
+  margin-top: auto;
+  background-color: var(--color-dark);
+  color: #94A3B8;
+  padding: 3.5rem 0 2rem;
+  font-size: 0.9rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-brand p {
+  color: #94A3B8;
+  margin-top: 0.75rem;
+  max-width: 320px;
+}
+
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-col a {
+  color: #94A3B8;
+}
+
+.footer-col a:hover {
+  color: #FFFFFF;
+}
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   8. Медіазапити (Responsive)
+   Брейкпоінти: 1024px (планшет), 768px (мобільний), 480px (малий мобільний)
+   ========================================================================== */
+
+/* --- Планшет --- */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  section {
+    padding: 2.75rem 0;
+  }
+}
+
+/* --- Мобільний: бургер-меню --- */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.85rem 0;
+  }
+
+  .nav-toggle-btn {
+    display: flex;
+    order: 3;
+  }
+
+  .nav-actions {
+    order: 2;
+    margin-left: auto;
+  }
+
+  /* Меню приховане, поки чекбокс не активовано */
+  .header-inner nav {
+    order: 4;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-toggle:checked ~ nav {
+    max-height: 320px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--color-border);
+    margin-top: 0.85rem;
+  }
+
+  nav a {
+    padding: 0.75rem 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+/* --- Малий мобільний --- */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  section {
+    padding: 2rem 0;
+  }
+
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-actions .btn {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+  }
+}

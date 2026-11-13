@@ -21,6 +21,13 @@
         <img src="images/logo.svg" alt="Логотип платформи ITCompass">
       </a>
 
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Відкрити меню">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
       <!-- Семантична навігація сайту -->
       <nav aria-label="Головне меню">
         <ul>
@@ -93,7 +100,7 @@
     </section>
 
     <!-- Популярні напрямки -->
-    <section style="background-color: #FFFFFF; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
+    <section class="section-alt">
       <div class="container">
         <div class="section-header">
           <h2>Популярні IT-спеціальності для старту</h2>
@@ -112,10 +119,10 @@
               <li class="tag">React</li>
               <li class="tag">TypeScript</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 14 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Від 800 ₴/год</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 14 менторів</span>
+                <span class="card-price">Від 800 ₴/год</span>
               </div>
               <div class="card-actions-grid">
                 <a href="profession-frontend.html" class="btn btn-outline">Докладніше</a>
@@ -135,10 +142,10 @@
               <li class="tag">Playwright</li>
               <li class="tag">CI/CD</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 12 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Від 950 ₴/год</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 12 менторів</span>
+                <span class="card-price">Від 950 ₴/год</span>
               </div>
               <div class="card-actions-grid">
                 <button type="button" class="btn btn-outline open-details-btn" data-profession="qa_auto">Докладніше</button>
@@ -158,10 +165,10 @@
               <li class="tag">UX Research</li>
               <li class="tag">Design Systems</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 13 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Від 900 ₴/год</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 13 менторів</span>
+                <span class="card-price">Від 900 ₴/год</span>
               </div>
               <div class="card-actions-grid">
                 <button type="button" class="btn btn-outline open-details-btn" data-profession="uiux">Докладніше</button>
@@ -175,9 +182,9 @@
 
     <!-- Заклик до дії -->
     <section>
-      <div class="container" style="text-align: center;">
+      <div class="container text-center">
         <h2>Не впевнені, яку спеціальність обрати?</h2>
-        <p style="max-width: 600px; margin: 0 auto 1.5rem;">
+        <p class="lead-narrow">
           Запишіться на безкоштовну вступну 20-хвилинну консультацію. Наш координатор допоможе визначити сильні сторони та обрати ідеальний вектор розвитку.
         </p>
         <a href="contacts.html" class="btn btn-accent">Залишити заявку на профорієнтацію</a>
@@ -231,7 +238,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 ITCompass. Розроблено для Лабораторної роботи №2 (студент гр. КА-43 Трофімов Г.). Усі права захищено.</p>
+        <p>&copy; 2026 ITCompass. Розроблено для Лабораторних робіт №2–3 (студент гр. КА-43 Трофімов Г.). Усі права захищено.</p>
         <p>Стандарти W3C &bull; Семантичний HTML5 &bull; Доступність WCAG 2.1 &bull; Python Flask Backend</p>
       </div>
     </div>

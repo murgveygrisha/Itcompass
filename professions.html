@@ -20,6 +20,13 @@
         <img src="images/logo.svg" alt="Логотип платформи ITCompass">
       </a>
 
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Відкрити меню">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
       <nav aria-label="Головне меню">
         <ul>
           <li><a href="index.html">Головна</a></li>
@@ -53,12 +60,12 @@
       </div>
     </div>
 
-    <section style="padding-top: 0;">
+    <section class="section-flush-top">
       <div class="container">
         <div class="grid-3" id="professionsList">
 
           <!-- Розділ: Software Engineering -->
-          <div id="cat-dev" style="grid-column: 1 / -1; scroll-margin-top: 90px; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+          <div id="cat-dev" class="catalog-section-title catalog-section-title-first">
             <h2 style="font-size: 1.35rem; color: var(--color-primary-dark); margin: 0; padding-bottom: 0.5rem; border-bottom: 2px solid #DBEAFE;">
               💻 1. Software Engineering
             </h2>
@@ -75,10 +82,10 @@
               <li class="tag">React / Vue</li>
               <li class="tag">TypeScript</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 14 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Перевірені кейси</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 14 менторів</span>
+                <span class="card-price">Перевірені кейси</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-frontend" class="btn btn-outline">Докладніше</a>
@@ -98,10 +105,10 @@
               <li class="tag">PostgreSQL / SQLite</li>
               <li class="tag">Docker</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 18 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">HighLoad задачі</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 18 менторів</span>
+                <span class="card-price">HighLoad задачі</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-backend" class="btn btn-outline">Докладніше</a>
@@ -121,10 +128,10 @@
               <li class="tag">SQL / SQLite</li>
               <li class="tag">CI/CD</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 11 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">End-to-End фічі</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 11 менторів</span>
+                <span class="card-price">End-to-End фічі</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-fullstack" class="btn btn-outline">Докладніше</a>
@@ -144,10 +151,10 @@
               <li class="tag">Flutter / Dart</li>
               <li class="tag">Mobile UX</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 8 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">App Store / Play</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 8 менторів</span>
+                <span class="card-price">App Store / Play</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-mobile" class="btn btn-outline">Докладніше</a>
@@ -157,7 +164,7 @@
           </article>
 
           <!-- Розділ: Тестування ПЗ (QA) -->
-          <div id="cat-qa" style="grid-column: 1 / -1; scroll-margin-top: 90px; margin-top: 2rem; margin-bottom: 0.5rem;">
+          <div id="cat-qa" class="catalog-section-title">
             <h2 style="font-size: 1.35rem; color: #1E3A8A; margin: 0; padding-bottom: 0.5rem; border-bottom: 2px solid #E0E7FF;">
               🧪 2. Тестування ПЗ (QA)
             </h2>
@@ -174,10 +181,10 @@
               <li class="tag">Postman (API)</li>
               <li class="tag">SQL Basics</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 15 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Легкий старт</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 15 менторів</span>
+                <span class="card-price">Легкий старт</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-qa_manual" class="btn btn-outline">Докладніше</a>
@@ -197,10 +204,10 @@
               <li class="tag">Selenium</li>
               <li class="tag">CI/CD</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 12 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Автоматизація</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 12 менторів</span>
+                <span class="card-price">Автоматизація</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-qa_auto" class="btn btn-outline">Докладніше</a>
@@ -210,7 +217,7 @@
           </article>
 
           <!-- Розділ: Data, AI & ML -->
-          <div id="cat-data" style="grid-column: 1 / -1; scroll-margin-top: 90px; margin-top: 2rem; margin-bottom: 0.5rem;">
+          <div id="cat-data" class="catalog-section-title">
             <h2 style="font-size: 1.35rem; color: #065F46; margin: 0; padding-bottom: 0.5rem; border-bottom: 2px solid #D1FAE5;">
               📊 3. Data, AI and Machine Learning
             </h2>
@@ -227,10 +234,10 @@
               <li class="tag">Python (Pandas)</li>
               <li class="tag">Статистика</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 9 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Дашборди & BI</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 9 менторів</span>
+                <span class="card-price">Дашборди & BI</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-data_analyst" class="btn btn-outline">Докладніше</a>
@@ -250,10 +257,10 @@
               <li class="tag">Data Mining</li>
               <li class="tag">Jupyter</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 8 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">ML & Прогнози</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 8 менторів</span>
+                <span class="card-price">ML & Прогнози</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-data_scientist" class="btn btn-outline">Докладніше</a>
@@ -273,10 +280,10 @@
               <li class="tag">MLOps</li>
               <li class="tag">HuggingFace</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 7 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">GenAI & LLM</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 7 менторів</span>
+                <span class="card-price">GenAI & LLM</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-ml_ai" class="btn btn-outline">Докладніше</a>
@@ -296,10 +303,10 @@
               <li class="tag">Kafka</li>
               <li class="tag">Snowflake / BigQuery</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 6 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Big Data & Pipelines</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 6 менторів</span>
+                <span class="card-price">Big Data & Pipelines</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-data_engineer" class="btn btn-outline">Докладніше</a>
@@ -309,7 +316,7 @@
           </article>
 
           <!-- Розділ: Інфраструктура та безпека -->
-          <div id="cat-infra" style="grid-column: 1 / -1; scroll-margin-top: 90px; margin-top: 2rem; margin-bottom: 0.5rem;">
+          <div id="cat-infra" class="catalog-section-title">
             <h2 style="font-size: 1.35rem; color: #831843; margin: 0; padding-bottom: 0.5rem; border-bottom: 2px solid #FCE7F3;">
               🛡️ 4. Інфраструктура та безпека
             </h2>
@@ -326,10 +333,10 @@
               <li class="tag">Terraform</li>
               <li class="tag">GitLab CI</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 10 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Cloud & CI/CD</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 10 менторів</span>
+                <span class="card-price">Cloud & CI/CD</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-devops" class="btn btn-outline">Докладніше</a>
@@ -349,10 +356,10 @@
               <li class="tag">Cost Optimization</li>
               <li class="tag">Microservices</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 5 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Enterprise Cloud</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 5 менторів</span>
+                <span class="card-price">Enterprise Cloud</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-cloud_arch" class="btn btn-outline">Докладніше</a>
@@ -372,10 +379,10 @@
               <li class="tag">PenTesting</li>
               <li class="tag">Cryptography</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 6 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">White-hat Security</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 6 менторів</span>
+                <span class="card-price">White-hat Security</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-cybersecurity" class="btn btn-outline">Докладніше</a>
@@ -385,7 +392,7 @@
           </article>
 
           <!-- Розділ: Design -->
-          <div id="cat-design" style="grid-column: 1 / -1; scroll-margin-top: 90px; margin-top: 2rem; margin-bottom: 0.5rem;">
+          <div id="cat-design" class="catalog-section-title">
             <h2 style="font-size: 1.35rem; color: #701A75; margin: 0; padding-bottom: 0.5rem; border-bottom: 2px solid #FDF4FF;">
               🎨 5. Design
             </h2>
@@ -402,10 +409,10 @@
               <li class="tag">Design Systems</li>
               <li class="tag">Prototyping</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 13 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Портфоліо & Figma</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 13 менторів</span>
+                <span class="card-price">Портфоліо & Figma</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-uiux" class="btn btn-outline">Докладніше</a>
@@ -415,7 +422,7 @@
           </article>
 
           <!-- Розділ: Management, Analytics & Product -->
-          <div id="cat-mgmt" style="grid-column: 1 / -1; scroll-margin-top: 90px; margin-top: 2rem; margin-bottom: 0.5rem;">
+          <div id="cat-mgmt" class="catalog-section-title">
             <h2 style="font-size: 1.35rem; color: #78350F; margin: 0; padding-bottom: 0.5rem; border-bottom: 2px solid #FEF3C7;">
               📈 6. Management, Analytics & Product
             </h2>
@@ -432,10 +439,10 @@
               <li class="tag">Risk Management</li>
               <li class="tag">Soft Skills</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 9 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">Scrum & Лідерство</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 9 менторів</span>
+                <span class="card-price">Scrum & Лідерство</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-pm" class="btn btn-outline">Докладніше</a>
@@ -455,10 +462,10 @@
               <li class="tag">SRS Documents</li>
               <li class="tag">UML</li>
             </ul>
-            <div class="card-footer" style="display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch;">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.85rem; color: #10B981; font-weight: 600;">👥 7 менторів</span>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);">BPMN & Специфікації</span>
+            <div class="card-footer card-footer-stacked">
+              <div class="card-meta">
+                <span class="card-mentors">👥 7 менторів</span>
+                <span class="card-price">BPMN & Специфікації</span>
               </div>
               <div class="card-actions-grid">
                 <a href="#modal-ba" class="btn btn-outline">Докладніше</a>
@@ -482,46 +489,46 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-dev">Software Engineering</span>
-      <h2 style="margin-top: 0.5rem;">1. Frontend Developer (React/Vue)</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">1. Frontend Developer (React/Vue)</h2>
+      <p class="modal-lead">
         Створення клієнтської частини сайтів та інтерактивних веб-додатків. Фахівець відповідає за швидкість завантаження, адаптивність та візуальну зручність інтерфейсу.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Адаптивна верстка за макетами Figma (HTML5/CSS3), базова асинхронна логіка на JavaScript, робота з готовими REST API.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Розробка SPA на React/Next.js/Vue, оптимізація продуктивності (Web Vitals), тестування компонентів (Jest/Playwright).</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Адаптивна верстка за макетами Figma (HTML5/CSS3), базова асинхронна логіка на JavaScript, робота з готовими REST API.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Розробка SPA на React/Next.js/Vue, оптимізація продуктивності (Web Vitals), тестування компонентів (Jest/Playwright).</li>
           <li><strong>Senior:</strong> Проєктування архітектури фронтенду, дизайн-систем, налаштування CI/CD пайплайнів, менторинг команди.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>HTML5 / CSS3 / Flexbox / Grid</li>
             <li>JavaScript (ES6+) & TypeScript</li>
             <li>React 19 / Vue.js / Next.js</li>
             <li>Tailwind CSS, Vite, Git</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Командна взаємодія (Scrum)</li>
             <li>Культура Code Review</li>
             <li>Увага до деталей (Pixel-Perfect)</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://developer.mozilla.org/uk/docs/Web/HTML" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">MDN Web Docs</a>
-          <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">React.dev</a>
-          <a href="https://www.typescriptlang.org/docs/handbook/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">TypeScript Handbook</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://developer.mozilla.org/uk/docs/Web/HTML" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">MDN Web Docs</a>
+          <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">React.dev</a>
+          <a href="https://www.typescriptlang.org/docs/handbook/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">TypeScript Handbook</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end; flex-wrap: wrap;">
+      <div class="modal-actions">
         <a href="profession-frontend.html" class="btn btn-outline">Окрема детальна сторінка &rarr;</a>
         <a href="contacts.html?profession=frontend" class="btn btn-primary">Замовити консультацію</a>
       </div>
@@ -534,46 +541,46 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-dev">Software Engineering</span>
-      <h2 style="margin-top: 0.5rem;">2. Backend Developer (Node.js/Python/Java/Go)</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">2. Backend Developer (Node.js/Python/Java/Go)</h2>
+      <p class="modal-lead">
         Проєктування серверної архітектури, створення надійних REST/GraphQL/gRPC сервісів, робота з реляційними та NoSQL базами даних.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Написання CRUD операцій, створення контролерів і маршрутів, написання простих SQL-запитів, документування API у Swagger.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Проєктування схем баз даних, оптимізація складних SQL-запитів, робота з чергами повідомлень (RabbitMQ, Redis, Kafka).</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Написання CRUD операцій, створення контролерів і маршрутів, написання простих SQL-запитів, документування API у Swagger.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Проєктування схем баз даних, оптимізація складних SQL-запитів, робота з чергами повідомлень (RabbitMQ, Redis, Kafka).</li>
           <li><strong>Senior:</strong> Мікросервісна архітектура, балансування навантаження, відмовостійкість систем, захист від DDoS та ін'єкцій.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Python (Flask / FastAPI / Django)</li>
             <li>Node.js / Go / Java</li>
             <li>PostgreSQL, MySQL, SQLite, Redis</li>
             <li>Docker, REST API, Git</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Аналітичне мислення</li>
             <li>Вміння аргументувати архітектурні рішення</li>
             <li>Тайм-менеджмент</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Flask Docs</a>
-          <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Python Docs</a>
-          <a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">PostgreSQL Docs</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Flask Docs</a>
+          <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Python Docs</a>
+          <a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">PostgreSQL Docs</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=backend" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -585,45 +592,45 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-dev">Software Engineering</span>
-      <h2 style="margin-top: 0.5rem;">3. Fullstack Developer</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">3. Fullstack Developer</h2>
+      <p class="modal-lead">
         Універсальний спеціаліст широкого профілю, який здатний самостійно створити готовий веб-сервіс від інтерфейсу користувача до сервера та бази даних.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Розробка невеликих модулів фронтенду та підключення до власних ендпоінтів бекенду.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Повний цикл розробки фічі (Full feature ownership): база даних + API + UI-компоненти.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Розробка невеликих модулів фронтенду та підключення до власних ендпоінтів бекенду.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Повний цикл розробки фічі (Full feature ownership): база даних + API + UI-компоненти.</li>
           <li><strong>Senior:</strong> Вибір технологічного стеку для нових продуктів, оптимізація взаємодії клієнт-сервер.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>TypeScript / Python</li>
             <li>React / Vue / Flask</li>
             <li>PostgreSQL / SQLite</li>
             <li>Docker, Nginx, CI/CD</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Гнучкість мислення</li>
             <li>Самостійність у комплексних задачах</li>
             <li>Швидке освоєння нових інструментів</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Next.js Docs</a>
-          <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Flask Docs</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Next.js Docs</a>
+          <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Flask Docs</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=fullstack" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -635,44 +642,44 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-dev">Software Engineering</span>
-      <h2 style="margin-top: 0.5rem;">4. Mobile Developer (iOS / Android / Flutter)</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">4. Mobile Developer (iOS / Android / Flutter)</h2>
+      <p class="modal-lead">
         Створення нативних та кросплатформних застосунків для смартфонів і планшетів на базі iOS та Android.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Верстка мобільних екранів за дизайн-макетами, інтеграція з REST API, збереження локальних даних.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Керування життєвим циклом екранів, робота з Push-сповіщеннями, офлайн-режим, анімації.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Верстка мобільних екранів за дизайн-макетами, інтеграція з REST API, збереження локальних даних.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Керування життєвим циклом екранів, робота з Push-сповіщеннями, офлайн-режим, анімації.</li>
           <li><strong>Senior:</strong> Оптимізація пам'яті та енергоспоживання додатку, публікація в App Store та Google Play.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Flutter & Dart / Swift / Kotlin</li>
             <li>REST API, WebSocket</li>
             <li>SQLite / Room / CoreData</li>
             <li>App Store / Play Console</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Human Interface Guidelines / Material Design</li>
             <li>Емпатія до користувача</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Flutter Docs</a>
-          <a href="https://developer.apple.com/documentation/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Apple Developer Docs</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Flutter Docs</a>
+          <a href="https://developer.apple.com/documentation/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Apple Developer Docs</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=mobile" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -684,45 +691,45 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-qa">Тестування ПЗ (QA)</span>
-      <h2 style="margin-top: 0.5rem;">5. Manual Testing Engineer</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">5. Manual Testing Engineer</h2>
+      <p class="modal-lead">
         Контроль якості програмного забезпечення, виявлення розбіжностей між очікуваною та фактичною поведінкою системи вручну.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Проходження готових тест-кейсів, складання зрозумілих баг-репортів у Jira, димне тестування (Smoke testing).</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Складання тест-планів, матриці трасування вимог, тестування REST API через Postman, перевірка баз даних через SQL.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Проходження готових тест-кейсів, складання зрозумілих баг-репортів у Jira, димне тестування (Smoke testing).</li>
+          <li class="mb-xs"><strong>Middle:</strong> Складання тест-планів, матриці трасування вимог, тестування REST API через Postman, перевірка баз даних через SQL.</li>
           <li><strong>Senior:</strong> Побудова QA-стратегії проєкту, управління релізами, аналіз ризиків якості.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Теорія тестування (ISTQB)</li>
             <li>Postman, Swagger</li>
             <li>Базовий SQL (SELECT, JOIN)</li>
             <li>Jira, TestRail</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Уважність до дрібниць</li>
             <li>Критичне мислення</li>
             <li>Грамотна письмова фіксація багів</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://www.istqb.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">ISTQB Glossary</a>
-          <a href="https://learning.postman.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Postman Learning Center</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://www.istqb.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">ISTQB Glossary</a>
+          <a href="https://learning.postman.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Postman Learning Center</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=qa_manual" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -734,44 +741,44 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-qa">Тестування ПЗ (QA)</span>
-      <h2 style="margin-top: 0.5rem;">6. Test Automation Engineer (Python/Java/JS)</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">6. Test Automation Engineer (Python/Java/JS)</h2>
+      <p class="modal-lead">
         Розробка автотестів для UI та API, побудова тестових фреймворків, які виконуються автоматично при кожному оновленні коду в CI/CD.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Написання та підтримка автотестів за готовим шаблоном фреймворку, локалізація причин падіння тестів.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Створення та розширення тест-фреймворків (Page Object Model), автоматизація API та E2E сценаріїв.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Написання та підтримка автотестів за готовим шаблоном фреймворку, локалізація причин падіння тестів.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Створення та розширення тест-фреймворків (Page Object Model), автоматизація API та E2E сценаріїв.</li>
           <li><strong>Senior:</strong> Інтеграція автотестів у CI/CD пайплайни, оптимізація швидкості виконання, паралелізація тестів.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Python / PyTest</li>
             <li>Playwright, Selenium WebDriver</li>
             <li>Postman / Newman</li>
             <li>Git, Docker, CI/CD</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Інженерний підхід</li>
             <li>Системне бачення архітектури тестування</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://playwright.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Playwright Docs</a>
-          <a href="https://docs.pytest.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">PyTest Docs</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://playwright.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Playwright Docs</a>
+          <a href="https://docs.pytest.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">PyTest Docs</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=qa_auto" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -783,44 +790,44 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-data">Data, AI and ML</span>
-      <h2 style="margin-top: 0.5rem;">7. Data Analyst</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">7. Data Analyst</h2>
+      <p class="modal-lead">
         Збір, очищення та дослідження цифрових показників компанії, побудова інформативних дашбордів для прийняття бізнес-рішень.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Вивантаження даних з баз через SQL, побудова базових звітів у Excel/Google Sheets, візуалізація метрик.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Розробка інтерактивних дашбордів у Tableau/PowerBI, аналіз когорт і продуктових воронок, перевірка A/B тестів.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Вивантаження даних з баз через SQL, побудова базових звітів у Excel/Google Sheets, візуалізація метрик.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Розробка інтерактивних дашбордів у Tableau/PowerBI, аналіз когорт і продуктових воронок, перевірка A/B тестів.</li>
           <li><strong>Senior:</strong> Побудова системи продуктової та маркетингової аналітики, формування стратегічних бізнес-висновків.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>SQL (Window functions, CTE)</li>
             <li>Tableau, PowerBI</li>
             <li>Python (Pandas, NumPy, Matplotlib)</li>
             <li>Математична статистика</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Storytelling with data</li>
             <li>Презентація цифр бізнесу</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://pandas.pydata.org/docs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Pandas Docs</a>
-          <a href="https://www.postgresqltutorial.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">SQL Analytics Guide</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://pandas.pydata.org/docs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Pandas Docs</a>
+          <a href="https://www.postgresqltutorial.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">SQL Analytics Guide</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=data_analyst" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -832,43 +839,43 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-data">Data, AI and ML</span>
-      <h2 style="margin-top: 0.5rem;">8. Data Scientist</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">8. Data Scientist</h2>
+      <p class="modal-lead">
         Створення прогнозних моделей на основі великих масивів даних, перевірка статистичних гіпотез і пошук прихованих закономірностей.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Попередня обробка даних (Feature Engineering), навчання базових моделей класифікації та регресії (Scikit-Learn).</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Підбір гіперпараметрів, робота з ансамблями дерев (XGBoost, LightGBM), оцінка метрик якості (ROC-AUC, F1).</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Попередня обробка даних (Feature Engineering), навчання базових моделей класифікації та регресії (Scikit-Learn).</li>
+          <li class="mb-xs"><strong>Middle:</strong> Підбір гіперпараметрів, робота з ансамблями дерев (XGBoost, LightGBM), оцінка метрик якості (ROC-AUC, F1).</li>
           <li><strong>Senior:</strong> Розробка кастомних алгоритмів, постановка бізнес-задач у математичні терміни, менторинг команди.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Python (Scikit-Learn, SciPy)</li>
             <li>SQL, Jupyter Notebook</li>
             <li>Лінійна алгебра, теорія ймовірностей</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Науковий підхід до експериментів</li>
             <li>Інтелектуальна допитливість</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Scikit-Learn Docs</a>
-          <a href="https://www.kaggle.com/learn" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Kaggle Learn</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Scikit-Learn Docs</a>
+          <a href="https://www.kaggle.com/learn" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Kaggle Learn</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=data_scientist" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -880,43 +887,43 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-data">Data, AI and ML</span>
-      <h2 style="margin-top: 0.5rem;">9. Machine Learning / AI Engineer</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">9. Machine Learning / AI Engineer</h2>
+      <p class="modal-lead">
         Впровадження моделей штучного інтелекту та глибинного навчання (Deep Learning, LLM) у реальну продуктивну експлуатацію.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Навчання та донавчання нейромереж на готових датасетах, оптимізація пайплайнів обробки вхідних даних.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Робота з Computer Vision та NLP (Transformers, HuggingFace), налаштування MLOps процесів (MLflow, DVC).</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Навчання та донавчання нейромереж на готових датасетах, оптимізація пайплайнів обробки вхідних даних.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Робота з Computer Vision та NLP (Transformers, HuggingFace), налаштування MLOps процесів (MLflow, DVC).</li>
           <li><strong>Senior:</strong> Розгортання великих моделей (LLMs, RAG) у HighLoad середовищі, квантування та оптимізація швидкодії інференсу.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>PyTorch, CUDA, HuggingFace</li>
             <li>LangChain, LLMs, RAG</li>
             <li>Docker, Kubernetes, MLOps</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Стратегічне бачення AI-інновацій</li>
             <li>Критична оцінка галюцинацій моделей</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://pytorch.org/docs/stable/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">PyTorch Docs</a>
-          <a href="https://huggingface.co/docs" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Hugging Face Docs</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://pytorch.org/docs/stable/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">PyTorch Docs</a>
+          <a href="https://huggingface.co/docs" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Hugging Face Docs</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=ml_ai" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -928,43 +935,43 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-data">Data, AI and ML</span>
-      <h2 style="margin-top: 0.5rem;">10. Data Engineer</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">10. Data Engineer</h2>
+      <p class="modal-lead">
         Побудова надійної інфраструктури передачі даних (Data Pipelines), сховищ (Data Warehouse, Data Lake) для аналітиків та моделей ML.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Написання простих ETL-скриптів на Python/SQL, моніторинг виконання регулярних cron-завдань.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Побудова оркестрації в Apache Airflow, обробка потокових даних (Kafka, Spark), робота з BigQuery/Snowflake.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Написання простих ETL-скриптів на Python/SQL, моніторинг виконання регулярних cron-завдань.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Побудова оркестрації в Apache Airflow, обробка потокових даних (Kafka, Spark), робота з BigQuery/Snowflake.</li>
           <li><strong>Senior:</strong> Проєктування корпоративних сховищ даних (DWH), оптимізація витрат на хмарну інфраструктуру, Data Governance.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Apache Airflow, Apache Spark, Kafka</li>
             <li>SQL, Python, dbt</li>
             <li>Snowflake / ClickHouse / BigQuery</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Системність та надійність</li>
             <li>Відповідальність за цілісність даних</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://airflow.apache.org/docs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Apache Airflow Docs</a>
-          <a href="https://spark.apache.org/docs/latest/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Apache Spark Docs</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://airflow.apache.org/docs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Apache Airflow Docs</a>
+          <a href="https://spark.apache.org/docs/latest/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Apache Spark Docs</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=data_engineer" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -976,44 +983,44 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-data">Інфраструктура</span>
-      <h2 style="margin-top: 0.5rem;">11. DevOps Engineer</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">11. DevOps Engineer</h2>
+      <p class="modal-lead">
         Автоматизація процесів розгортання, інтеграції (CI/CD) та забезпечення стабільності серверної інфраструктури продукту.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Написання базових Dockerfile, підтримка простих GitHub Actions пайплайнів, моніторинг серверів (Prometheus/Grafana).</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Управління кластерами Kubernetes, опис інфраструктури як коду (Terraform/Ansible), оптимізація CI/CD.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Написання базових Dockerfile, підтримка простих GitHub Actions пайплайнів, моніторинг серверів (Prometheus/Grafana).</li>
+          <li class="mb-xs"><strong>Middle:</strong> Управління кластерами Kubernetes, опис інфраструктури як коду (Terraform/Ansible), оптимізація CI/CD.</li>
           <li><strong>Senior:</strong> Архітектура мультихмарних рішень, Disaster Recovery стратегії, автоматизація масштабування під пікові навантаження.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Linux / Bash</li>
             <li>Docker & Kubernetes</li>
             <li>CI/CD (GitHub Actions / GitLab CI)</li>
             <li>Terraform, AWS / GCP</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Швидка реакція в інцидентах</li>
             <li>Стресостійкість, автоматизаційне мислення</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://kubernetes.io/docs/home/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Kubernetes Docs</a>
-          <a href="https://docs.docker.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Docker Docs</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://kubernetes.io/docs/home/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Kubernetes Docs</a>
+          <a href="https://docs.docker.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Docker Docs</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=devops" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -1025,43 +1032,43 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-data">Інфраструктура</span>
-      <h2 style="margin-top: 0.5rem;">12. Cloud Architect (AWS/GCP/Azure)</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">12. Cloud Architect (AWS/GCP/Azure)</h2>
+      <p class="modal-lead">
         Стратегічне проєктування хмарної інфраструктури підприємства з точки зору надійності, безпеки та фінансової оптимізації.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Налаштування хмарних сервісів (VPC, IAM, S3, EC2) за готовою архітектурною схемою.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Проєктування відмовостійких систем (High Availability), оптимізація хмарних витрат (FinOps), міграція сервісів.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Налаштування хмарних сервісів (VPC, IAM, S3, EC2) за готовою архітектурною схемою.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Проєктування відмовостійких систем (High Availability), оптимізація хмарних витрат (FinOps), міграція сервісів.</li>
           <li><strong>Senior:</strong> Розробка корпоративної хмарної стратегії, проходження сертифікацій безпеки (SOC2, ISO 27001), гібридні хмари.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>AWS / GCP / Azure</li>
             <li>Cloud Architecture Framework</li>
             <li>Networking, IAM, FinOps</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Переговорні навички з бізнесом</li>
             <li>Стратегічне бачення та презентація</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">AWS Well-Architected</a>
-          <a href="https://cloud.google.com/architecture" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">GCP Architecture Center</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">AWS Well-Architected</a>
+          <a href="https://cloud.google.com/architecture" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GCP Architecture Center</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=cloud_arch" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -1073,43 +1080,43 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-data">Безпека</span>
-      <h2 style="margin-top: 0.5rem;">13. Cybersecurity Specialist / InfoSec</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">13. Cybersecurity Specialist / InfoSec</h2>
+      <p class="modal-lead">
         Захист комп'ютерних мереж, серверів та коду від несанкціонованого доступу, витоків даних і кібератак.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Аналіз логів безпеки в SIEM-системах, проведення базового сканування вразливостей (Nmap, Nessus).</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Тестування на проникнення (Penetration testing), впровадження DevSecOps практик, розслідування інцидентів.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Аналіз логів безпеки в SIEM-системах, проведення базового сканування вразливостей (Nmap, Nessus).</li>
+          <li class="mb-xs"><strong>Middle:</strong> Тестування на проникнення (Penetration testing), впровадження DevSecOps практик, розслідування інцидентів.</li>
           <li><strong>Senior:</strong> Побудова корпоративної політики Zero Trust, управління ризиками кібербезпеки, аудит на відповідність GDPR/PCI DSS.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>TCP/IP, Мережева безпека</li>
             <li>OWASP Top 10, Kali Linux</li>
             <li>Burp Suite, Wireshark, SIEM</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Етичність та відповідальність</li>
             <li>Швидке критичне мислення під час атак</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://owasp.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">OWASP Foundation</a>
-          <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">NIST Cyber Framework</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://owasp.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">OWASP Foundation</a>
+          <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">NIST Cyber Framework</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=cybersecurity" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -1121,44 +1128,44 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-design">Design</span>
-      <h2 style="margin-top: 0.5rem;">14. UI/UX Designer</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">14. UI/UX Designer</h2>
+      <p class="modal-lead">
         Створення зручного та привабливого користувацького досвіду (UX) і візуального інтерфейсу (UI) цифрових продуктів.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Створення компонентів у Figma за готовою дизайн-системою, підготовка макетів для передачі розробникам.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Проведення UX-досліджень, глибинних інтерв'ю з користувачами, створення інтерактивних клікабельних прототипів.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Створення компонентів у Figma за готовою дизайн-системою, підготовка макетів для передачі розробникам.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Проведення UX-досліджень, глибинних інтерв'ю з користувачами, створення інтерактивних клікабельних прототипів.</li>
           <li><strong>Senior:</strong> Побудова та масштабування корпоративних дизайн-систем, вплив дизайну на бізнес-метрики (конверсія, Retention).</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Figma (Auto-layout, Components)</li>
             <li>UX Research, Wireframing</li>
             <li>Design Systems, Prototyping</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Розвинена емпатія</li>
             <li>Комунікація з розробниками</li>
             <li>Аргументація дизайнерських рішень</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://help.figma.com/hc/en-us" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Figma Help Center</a>
-          <a href="https://www.nngroup.com/articles/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Nielsen Norman Group UX</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://help.figma.com/hc/en-us" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Figma Help Center</a>
+          <a href="https://www.nngroup.com/articles/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Nielsen Norman Group UX</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=uiux" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -1170,44 +1177,44 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-mgmt">Management</span>
-      <h2 style="margin-top: 0.5rem;">15. Project Manager (PM)</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">15. Project Manager (PM)</h2>
+      <p class="modal-lead">
         Планування, координація команди та контроль термінів і бюджетів для успішного релізу програмного продукту.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Ведення щоденних статусів (Stand-ups), заповнення задач у Jira/Trello, ведення документації проєкту в Confluence.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Управління спринтами (Scrum/Kanban), планування завантаження команди (Capacity planning), комунікація з клієнтом.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Ведення щоденних статусів (Stand-ups), заповнення задач у Jira/Trello, ведення документації проєкту в Confluence.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Управління спринтами (Scrum/Kanban), планування завантаження команди (Capacity planning), комунікація з клієнтом.</li>
           <li><strong>Senior:</strong> Управління бюджетами та ризиками великих програм проєктів, трансформація Agile-процесів компанії.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>Scrum, Kanban, Waterfall</li>
             <li>Jira, Confluence</li>
             <li>Risk Management, Gantt Charts</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Лідерські якості</li>
             <li>Розв'язання конфліктів</li>
             <li>Прозора комунікація</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://scrumguides.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Scrum Guide</a>
-          <a href="https://www.atlassian.com/agile" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Atlassian Agile Coach</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://scrumguides.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Scrum Guide</a>
+          <a href="https://www.atlassian.com/agile" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Atlassian Agile Coach</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=pm" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -1219,44 +1226,44 @@
     <div class="modal-card">
       <a href="#close" class="modal-close" aria-label="Закрити">&times;</a>
       <span class="card-badge badge-mgmt">Management & Analytics</span>
-      <h2 style="margin-top: 0.5rem;">16. Business Analyst (BA)</h2>
-      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+      <h2 class="mt-sm">16. Business Analyst (BA)</h2>
+      <p class="modal-lead">
         Аналіз бізнес-процесів замовника, моделювання за стандартом BPMN та написання чітких технічних вимог і User Stories.
       </p>
-      <div style="background-color: #F8FAFC; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; border: 1px solid var(--color-border);">
-        <h4 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1rem;">📌 Обов'язки за грейдами:</h4>
-        <ul style="padding-left: 1.25rem; margin: 0; line-height: 1.6; font-size: 0.9rem;">
-          <li style="margin-bottom: 0.4rem;"><strong>Junior:</strong> Складання описів користувацьких історій (User Stories) за критеріями Acceptance Criteria, протоколювання зустрічей.</li>
-          <li style="margin-bottom: 0.4rem;"><strong>Middle:</strong> Моделювання бізнес-процесів у BPMN/UML, складання специфікації вимог (SRS), фасилітація воркшопів.</li>
+      <div class="panel">
+        <h4 class="modal-section-title">📌 Обов'язки за грейдами:</h4>
+        <ul class="list-compact">
+          <li class="mb-xs"><strong>Junior:</strong> Складання описів користувацьких історій (User Stories) за критеріями Acceptance Criteria, протоколювання зустрічей.</li>
+          <li class="mb-xs"><strong>Middle:</strong> Моделювання бізнес-процесів у BPMN/UML, складання специфікації вимог (SRS), фасилітація воркшопів.</li>
           <li><strong>Senior:</strong> Розробка бізнес-кейсу для нових продуктів, стратегічний аналіз ринку, управління скоупом enterprise-проєктів.</li>
         </ul>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🎯 Hard Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+      <div class="grid-2-tight">
+        <div class="info-box">
+          <h4 class="note-sm">🎯 Hard Skills:</h4>
+          <ul class="list-flat">
             <li>BPMN 2.0, UML</li>
             <li>User Stories, SRS Documents</li>
             <li>Базовий SQL</li>
           </ul>
         </div>
-        <div style="background: #F1F5F9; padding: 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
-          <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">🤝 Soft Skills:</h4>
-          <ul style="margin: 0; padding-left: 1rem; line-height: 1.5;">
+        <div class="info-box">
+          <h4 class="note-sm">🤝 Soft Skills:</h4>
+          <ul class="list-flat">
             <li>Активне слухання</li>
             <li>Виявлення неявних потреб бізнесу</li>
             <li>Структуроване мислення</li>
           </ul>
         </div>
       </div>
-      <div style="margin-bottom: 1.5rem;">
-        <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem;">📚 Офіційна документація:</h4>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="https://www.iiba.org/career-resources/a-guide-to-the-business-analysis-body-of-knowledge-babok-guide/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">BABOK Guide</a>
-          <a href="https://www.bpmn.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">BPMN 2.0 Specs</a>
+      <div class="mb-lg">
+        <h4 class="label-sm">📚 Офіційна документація:</h4>
+        <div class="chip-row">
+          <a href="https://www.iiba.org/career-resources/a-guide-to-the-business-analysis-body-of-knowledge-babok-guide/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">BABOK Guide</a>
+          <a href="https://www.bpmn.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">BPMN 2.0 Specs</a>
         </div>
       </div>
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="modal-actions">
         <a href="contacts.html?profession=ba" class="btn btn-primary">Замовити консультацію</a>
       </div>
     </div>
@@ -1306,7 +1313,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 ITCompass. Розроблено для Лабораторної роботи №2 (Трофімов Г., КА-43).</p>
+        <p>&copy; 2026 ITCompass. Розроблено для Лабораторних робіт №2–3 (Трофімов Г., КА-43).</p>
         <p>100% W3C Validated HTML5 &bull; 16 IT-спеціальностей &bull; Pure HTML/CSS</p>
       </div>
     </div>
