@@ -336,3 +336,13 @@ footer {
     font-size: 0.85rem;
   }
 }
+
+/* ==========================================================================
+   ЛР4: Підсвітка пунктів меню, яку додає JavaScript (mouseover/mouseout),
+   а не CSS-псевдоклас :hover
+   ========================================================================== */
+nav a.js-nav-hover {
+  color: #FFFFFF;
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}

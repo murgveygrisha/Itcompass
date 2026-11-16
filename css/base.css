@@ -133,3 +133,33 @@ tr:hover td {
 }
 
 .align-start { align-items: start; }
+
+/* ==========================================================================
+   ЛР4: Темна тема (перемикається JavaScript-кнопкою через клас dark-theme)
+   ========================================================================== */
+body.dark-theme {
+  --color-dark: #F1F5F9;
+  --color-text: #CBD5E1;
+  --color-text-muted: #94A3B8;
+  --color-bg: #0F172A;
+  --color-surface: #1E293B;
+  --color-border: #334155;
+  --color-primary-light: #1E3A5F;
+  --color-error-light: #450A0A;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+}
+
+body.dark-theme,
+body.dark-theme header,
+body.dark-theme .card,
+body.dark-theme .form-container {
+  background-color: var(--color-bg);
+}
+
+body.dark-theme .card,
+body.dark-theme .form-container,
+body.dark-theme header {
+  background-color: var(--color-surface);
+}

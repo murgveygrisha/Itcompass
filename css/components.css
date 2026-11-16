@@ -510,3 +510,63 @@
     align-items: stretch;
   }
 }
+
+/* ==========================================================================
+   ЛР4: Компоненти, якими керує JavaScript
+   ========================================================================== */
+
+/* Кнопка перемикання теми у шапці */
+.theme-toggle {
+  padding: 0.5rem 0.75rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-primary);
+}
+
+/* Акордеон «Показати більше» */
+.accordion-content {
+  display: none;
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background-color: var(--color-primary-light);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.accordion-content.open {
+  display: block;
+}
+
+/* Абзац, який JavaScript додає в кінець <main> */
+.js-generated-note {
+  margin: 2rem auto;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* Поточна дата у футері (додається JavaScript) */
+.footer-date {
+  font-weight: 600;
+}
+
+/* Темна тема: контрастність контурних кнопок та тегів */
+body.dark-theme .btn-outline {
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+body.dark-theme .btn-outline:hover {
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
